@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<TriggernometryExport PluginVersion="1.2.0.718">
+  <ExportedTrigger Enabled="true" Name="脱战自动加速" Id="acb8a3c3-ba6e-42ca-8829-3825726987c6" RegularExpression="^.{14} 260 104:.:0:.:1">
+    <Actions>
+      <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/ac 速行" ActionType="NamedCallback" ExecutionDelayExpression="500" Asynchronous="False" />
+      <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/ac 冲刺" ActionType="NamedCallback" ExecutionDelayExpression="1000" Asynchronous="False" />
+    </Actions>
+  </ExportedTrigger>
+</TriggernometryExport>

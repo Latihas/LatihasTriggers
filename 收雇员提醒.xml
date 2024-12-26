@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<TriggernometryExport PluginVersion="1.2.0.718">
+  <ExportedTrigger Enabled="true" Name="收雇员提醒" Id="1b3be09f-3835-401e-a53b-88669d406ce3" RegularExpression="^.{14} ChatLog 00:0039::雇员.+成功完成了探险！$" PrevActionsRefire="Deny" Scheduling="FromRefirePeriod" PeriodRefire="Deny">
+    <Actions>
+      <Action OrderNumber="1" UseTTSTextExpression="雇员已完成探险" ActionType="UseTTS" />
+    </Actions>
+  </ExportedTrigger>
+</TriggernometryExport>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<TriggernometryExport PluginVersion="1.2.0.718">
+  <ExportedTrigger Enabled="true" Name="采集自动上坐骑" Id="1f888a92-cbe2-4c80-b488-fd4b3c0596d8" RegularExpression="^.{14} ChatLog 00:0843::(?&lt;name&gt;.+)结束了(?&lt;work&gt;.+)作业。$">
+    <Actions>
+      <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/ac 随机坐骑" ActionType="NamedCallback" Asynchronous="False" />
+      <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/automove on" ActionType="NamedCallback" ExecutionDelayExpression="1500" Asynchronous="False" />
+      <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/gaction 跳跃" Enabled="False" ActionType="NamedCallback" ExecutionDelayExpression="500" Asynchronous="False" />
+      <Action OrderNumber="4" NamedCallbackName="command" NamedCallbackParam="/ac 大地勘察" Enabled="False" ActionType="NamedCallback" Asynchronous="False">
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${work}" ExpressionTypeL="String" ExpressionR="采掘" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+          <ConditionSingle Enabled="true" ExpressionL="${work}" ExpressionTypeL="String" ExpressionR="碎石" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+        </Condition>
+      </Action>
+      <Action OrderNumber="5" NamedCallbackName="command" NamedCallbackParam="/ac 树木之声" Enabled="False" ActionType="NamedCallback" Asynchronous="False">
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${work}" ExpressionTypeL="String" ExpressionR="采伐" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+          <ConditionSingle Enabled="true" ExpressionL="${work}" ExpressionTypeL="String" ExpressionR="割草" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+        </Condition>
+      </Action>
+    </Actions>
+    <Condition Enabled="true" Grouping="Or">
+      <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_me}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+    </Condition>
+  </ExportedTrigger>
+</TriggernometryExport>

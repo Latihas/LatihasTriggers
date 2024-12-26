@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<TriggernometryExport PluginVersion="1.2.0.718">
+  <ExportedTrigger Enabled="true" Sequential="True" Name="测试地区" Id="3c193303-5c62-4077-81b5-e279b5d5d4bb" RegularExpression="^.{14} Territory [^:]+:(?&lt;id&gt;[^:]+):(?&lt;text&gt;[^:]+)">
+    <Actions>
+      <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e 进入区域:0x${id}:${text}" ActionType="NamedCallback" />
+    </Actions>
+  </ExportedTrigger>
+</TriggernometryExport>

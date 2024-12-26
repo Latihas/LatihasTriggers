@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<TriggernometryExport PluginVersion="1.2.0.718">
+  <ExportedTrigger Enabled="true" Name="惊吓挂U" Id="4044efd8-daab-40a9-a236-c9bbd34df28e" RegularExpression="^.{14} Director 21:.{8}:40000001:">
+    <Actions>
+      <Action OrderNumber="1" NamedCallbackName="AdvWm" NamedCallbackParam="Action: EncodeAnonymous&#xD;&#xA;Data: &lt;1&gt;,少开点挂 &lt;se.12&gt;" ActionType="NamedCallback" />
+      <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/wmark off" ActionType="NamedCallback" ExecutionDelayExpression="1000" />
+    </Actions>
+  </ExportedTrigger>
+</TriggernometryExport>

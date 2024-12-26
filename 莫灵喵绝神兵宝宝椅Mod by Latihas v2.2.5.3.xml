@@ -1,0 +1,640 @@
+<?xml version="1.0"?>
+<TriggernometryExport PluginVersion="1.2.0.718">
+  <ExportedFolder Id="1c13d23a-5d8f-4f37-805a-bd1fee48002f" Name="莫灵喵绝神兵宝宝椅Mod by Latihas v2.2.5.3" Enabled="true">
+    <Folders>
+      <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^777$" Id="be4a64f5-8b92-442c-a362-4e7c10a75493" Name="区域限制" Enabled="true">
+        <Folders>
+          <Folder Id="0340c7cb-c706-43bf-b173-db65e0d068e0" Name="控制" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Name="团灭初始化" Id="c62875de-1b53-4dd9-b5fa-f7bb272714cf" RegularExpression="^.{14} Director 21:.{8}:400000(?:03|1[026]|05)" RefirePeriodExpression="5000">
+                <Actions>
+                  <Action OrderNumber="1" TriggerOp="CancelTrigger" TriggerId="33bc122a-3601-4634-892f-d4881aee1d8b" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="2" TriggerOp="CancelTrigger" TriggerId="ce7c5a78-90e6-4b42-9e22-256a1f06e70b" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="3" TriggerOp="CancelTrigger" TriggerId="5e8afdd7-61d7-4793-b22b-260218c4e795" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="4" TriggerOp="CancelTrigger" TriggerId="5cf27bc9-d770-4862-90b5-114bfb4ef98b" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="5" TriggerOp="CancelTrigger" TriggerId="b5eeb0a3-876c-4728-929c-a0e6fd929aaf" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="6" TriggerOp="CancelTrigger" TriggerId="62229d40-00a0-4fc6-b6ce-2962b7b15ccd" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="7" TriggerOp="CancelTrigger" TriggerId="3a769180-2383-4793-b072-06536dfc472f" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="8" TriggerOp="CancelTrigger" TriggerId="fb56ab97-3c17-48d8-b173-bfe3222c40b2" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="9" TriggerOp="CancelTrigger" TriggerId="c49f9b23-1da0-447a-93f6-08b2e065122a" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="10" TriggerOp="CancelTrigger" TriggerId="3bd8c61a-a828-4bd8-aa8e-8a645636fdb6" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="11" TriggerOp="CancelTrigger" TriggerId="284f7968-3ed0-4bb1-adee-3a7d5dd364b6" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="12" VariableOp="UnsetRegexUniversal" VariableName="^tuw_.+" ActionType="Variable" Asynchronous="False" />
+                  <Action OrderNumber="13" NamedCallbackName="LatihasTUW" NamedCallbackParam="p0init" ActionType="NamedCallback" Asynchronous="False" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="接收职能初始化" Id="3fc0e220-ecda-4248-ab91-a0af3dded47a" RegularExpression="^.{14} ChatLog 00:0038::\[LatihasTUW\] (?&lt;str&gt;.+)$">
+                <Actions>
+                  <Action OrderNumber="1" TriggerId="9334f3ea-29e3-47f2-a1db-bdfd092bcb98" TriggerForce="regexp" ActionType="Trigger" Asynchronous="False">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${ecallback:LatihasTUW}" ExpressionTypeL="String" ExpressionR="0" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" NamedCallbackName="LatihasTUW" NamedCallbackParam="p0init:${str}" ActionType="NamedCallback" Asynchronous="False" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="发送职能初始化" Id="63740ce2-d435-44dc-a533-cc6f7b8c1340" RegularExpression="^.{14} ChatLog 00:0038::(?&lt;role&gt;[sSmMhHdD][tT1-4])$" Description="在/s或/p喊话：&#xD;&#xA;&#xD;&#xA;你是D1就喊话D1&#xD;&#xA;你是D2就喊话D2&#xD;&#xA;你是D3就喊话D3&#xD;&#xA;你是D4就喊话D4&#xD;&#xA;你是H1就喊话H1&#xD;&#xA;你是H2就喊话H2&#xD;&#xA;你是MT就喊话MT&#xD;&#xA;你是ST就喊话ST&#xD;&#xA;&#xD;&#xA;设置成功会有字幕提醒&#xD;&#xA;&#xD;&#xA;字母仅限英文半角，全角不可以">
+                <Actions>
+                  <Action OrderNumber="1" VariableOp="SetString" VariableName="ptuw_USpecJob" VariableExpression="${role}" ActionType="Variable" Asynchronous="False" />
+                  <Action OrderNumber="2" TriggerId="9334f3ea-29e3-47f2-a1db-bdfd092bcb98" TriggerForce="regexp" ActionType="Trigger" Asynchronous="False">
+                    <Condition Enabled="false" Grouping="Or">
+                      <ConditionSingle Enabled="false" ExpressionL="${ecallback:LatihasTUW}" ExpressionTypeL="String" ExpressionR="0" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                    </Condition>
+                  </Action>
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="启用触发" Id="79734b62-577d-4fc7-b8eb-f74671724e05" RegularExpression="">
+                <Actions>
+                  <Action OrderNumber="1" TriggerOp="EnableTrigger" TriggerId="c49f9b23-1da0-447a-93f6-08b2e065122a" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="2" TriggerOp="EnableTrigger" TriggerId="3bd8c61a-a828-4bd8-aa8e-8a645636fdb6" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="3" TriggerOp="EnableTrigger" TriggerId="284f7968-3ed0-4bb1-adee-3a7d5dd364b6" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="4" TriggerOp="EnableTrigger" TriggerId="ec271fec-808c-40d4-92be-db48f5527b03" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="5" TriggerOp="EnableTrigger" TriggerId="b2a6a2fa-1a37-453e-b024-de08ce4f0feb" ActionType="Trigger" Asynchronous="False" />
+                </Actions>
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="c7f0860d-ea5c-4b12-b6a5-10f980a3a7e3" Name="P1风神" Enabled="true">
+            <Folders>
+              <Folder Id="24986307-723e-4449-a52f-0029a1f382f0" Name="刺羽承伤" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="刺羽承伤记录" Id="92b4d3c2-de07-41e1-a1ed-1227d97e7a3d" RegularExpression="^.{14} (?:ActionEffect 15|AOEActionEffect 16):.{8}:(?&lt;sname&gt;[^:]+):(?&lt;jid&gt;[^:]+):(?&lt;jname&gt;[^:]+):.+:71878:0:10000">
+                    <Actions>
+                      <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="p1ciyudmg:${jid},${sname}[${jname}]" VariableOp="SetString" VariableName="tuw_刺羽_承伤" VariableExpression="${var:tuw_刺羽_承伤} | ${sname}[${jname}]" ActionType="NamedCallback" />
+                    </Actions>
+                  </Trigger>
+                  <Trigger Enabled="true" Name="刺羽连线2层" Id="ad2765dc-3403-43f8-885c-8b6e34afd511" RegularExpression="^.{14} StatusAdd 1A:5F5:[^:]+:9999.00:40.{6}:[^:]+:10.{6}:[^:]+:02:[^:]+:71878">
+                    <Actions>
+                      <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="p1ciyucs" VariableOp="SetNumeric" VariableName="tuw_刺羽层数" VariableExpression="${var:tuw_刺羽层数}+1" ActionType="NamedCallback" />
+                    </Actions>
+                  </Trigger>
+                  <Trigger Enabled="true" Name="获取刺羽" Id="13313ec3-71d1-4de9-8244-71315da54997" RegularExpression="^.{14} AddCombatant 03:(?&lt;zid&gt;.{8}):.+:00::2091:8726:">
+                    <Actions>
+                      <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="p1ciyu:${zid}" ActionType="NamedCallback" />
+                    </Actions>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers>
+              <Trigger Enabled="true" Name="P1时间轴" Id="33bc122a-3601-4634-892f-d4881aee1d8b" RegularExpression="^.{14} 260 104:.:1:.:1" PrevActionsRefire="Deny" PeriodRefire="Deny" Description="需要改快捷键要打开分组一个一个改 修改那个向最终幻想XIV发送的数字keycode&#xD;&#xA;下面是键位对应的keycode&#xD;&#xA;&#xD;&#xA;键码值(keyCode)&#xD;&#xA;A:65 B:66 C:67 D:68 E:69 F:70 G:71 H:72 I:73 J:74 K:75 L:76 M:77&#xD;&#xA;N:78 O:79 P:80 Q:81 R:82 S:83 T:84 U:85 V:86 W:87 X:88 Y:89 Z:90&#xD;&#xA;大键盘上的数字&#xD;&#xA;0:48 1:49 2:50 3:51 4:52 5:53 6:54 7:55 8:56 9:57&#xD;&#xA;小键盘上的数字&#xD;&#xA;0:96 1:97 2:98 3:99 4:100 5:101 6:102 7:103 8:104 9:105&#xD;&#xA;F1-F12&#xD;&#xA;F1:112 F2:113 F3:114 F4:115 F5:116 F6:117 F7:118 F8:l119 F9:120 F10:121 F11:122 F12:123">
+                <Actions>
+                  <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="p1place" TriggerId="adc7a596-943e-4567-aa7f-57d360dad1d8" TriggerForce="regexp,conditions" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="2" NamedCallbackName="LatihasTUW" NamedCallbackParam="p1place" TriggerId="79734b62-577d-4fc7-b8eb-f74671724e05" TriggerForce="regexp" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="3" UseTTSTextExpression="顺劈" ActionType="UseTTS" ExecutionDelayExpression="4000" Asynchronous="False" />
+                  <Action OrderNumber="4" UseTTSTextExpression="顺劈加死刑" ActionType="UseTTS" ExecutionDelayExpression="15000" Asynchronous="False" />
+                  <Action OrderNumber="5" UseTTSTextExpression="躲羽毛" ActionType="UseTTS" ExecutionDelayExpression="14000" Asynchronous="False" Description="33" />
+                  <Action OrderNumber="6" UseTTSTextExpression="AOE" ActionType="UseTTS" ExecutionDelayExpression="4000" Asynchronous="False" Description="33" />
+                  <Action OrderNumber="7" UseTTSTextExpression="ST消除" ActionType="UseTTS" ExecutionDelayExpression="7000" Asynchronous="False" Description="44" />
+                  <Action OrderNumber="8" UseTTSTextExpression="远奶消除" ActionType="UseTTS" ExecutionDelayExpression="5000" Asynchronous="False" Description="47" />
+                  <Action OrderNumber="9" UseTTSTextExpression="近战消除" ActionType="UseTTS" ExecutionDelayExpression="10000" Asynchronous="False" Description="56">
+                    <Condition Enabled="false" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Healer" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="10" UseTTSTextExpression="躲羽毛" ActionType="UseTTS" ExecutionDelayExpression="10000" Asynchronous="False" />
+                  <Action OrderNumber="11" UseTTSTextExpression="AOE" ActionType="UseTTS" ExecutionDelayExpression="3000" Asynchronous="False" />
+                  <Action OrderNumber="12" UseTTSTextExpression="躲羽毛" ActionType="UseTTS" ExecutionDelayExpression="17000" Asynchronous="False" />
+                  <Action OrderNumber="13" NamedCallbackName="LatihasTUW" NamedCallbackParam="p1fs1" UseTTSTextExpression="躲羽毛" TriggerId="14c3bd0c-7e4a-4072-9b28-8b7921770e95" TriggerForce="regexp" ActionType="NamedCallback" ExecutionDelayExpression="3500" Asynchronous="False" />
+                  <Action OrderNumber="14" NamedCallbackName="LatihasTUW" NamedCallbackParam="p1fshp1" TriggerForce="regexp" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="15" UseTTSTextExpression="躲羽毛" ActionType="UseTTS" ExecutionDelayExpression="8500" Asynchronous="False" />
+                  <Action OrderNumber="16" NamedCallbackName="LatihasTUW" NamedCallbackParam="initplace" TriggerId="0cd509ba-d3cd-4970-bcf0-c4613d36971e" TriggerForce="regexp" ActionType="NamedCallback" ExecutionDelayExpression="6000" Asynchronous="False" />
+                  <Action OrderNumber="17" NamedCallbackName="LatihasTUW" NamedCallbackParam="p1fshp2" TriggerForce="regexp" ActionType="NamedCallback" ExecutionDelayExpression="2000" Asynchronous="False" />
+                  <Action OrderNumber="18" NamedCallbackName="LatihasTUW" NamedCallbackParam="p1fs2" UseTTSTextExpression="远T接线" TriggerForce="regexp" ActionType="NamedCallback" ExecutionDelayExpression="10000" Asynchronous="False" />
+                  <Action OrderNumber="19" UseTTSTextExpression="顺劈加死刑" ActionType="UseTTS" ExecutionDelayExpression="500" Asynchronous="False" />
+                  <Action OrderNumber="20" UseTTSTextExpression="躲羽毛" ActionType="UseTTS" ExecutionDelayExpression="6500" Asynchronous="False" />
+                  <Action OrderNumber="21" UseTTSTextExpression="顺劈" ActionType="UseTTS" ExecutionDelayExpression="13000" Asynchronous="False" />
+                  <Action OrderNumber="22" UseTTSTextExpression="钢铁月环" ActionType="UseTTS" ExecutionDelayExpression="8000" Asynchronous="False" />
+                  <Action OrderNumber="23" UseTTSTextExpression="分摊" ActionType="UseTTS" ExecutionDelayExpression="8000" Asynchronous="False" />
+                  <Action OrderNumber="24" UseTTSTextExpression="顺劈" ActionType="UseTTS" ExecutionDelayExpression="4000" Asynchronous="False" />
+                </Actions>
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="ef732c15-e9da-4df8-ab14-d9f129576b25" Name="P2火神" Enabled="true">
+            <Folders>
+              <Folder Id="b4cb78f2-cd2f-4fb1-bd44-522e8e23abda" Name="火柱承伤" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="柱子觉醒2层" Id="05a59d33-01be-4ad9-8253-588b88ee5ecb" RegularExpression="^.{14} StatusAdd 1A:609:[^:]+:9999.00:.{8}::(?&lt;zid&gt;.{8}):[^:]+:02:">
+                    <Actions>
+                      <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="p2zhuzijx:${zid}" ActionType="NamedCallback" />
+                    </Actions>
+                  </Trigger>
+                  <Trigger Enabled="true" Name="柱子承伤记录" Id="a67f6759-ee59-47a1-a2c0-7b92698d8913" RegularExpression="^.{14} (?:ActionEffect 15|AOEActionEffect 16):.{8}:(?&lt;sname&gt;[^:]+):(?&lt;jid&gt;[^:]+):(?&lt;jname&gt;[^:]+):(?&lt;tid&gt;.{8}):.+:26870:0:10000">
+                    <Actions>
+                      <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="p2zhuzidmg:${jid},${sname}[${jname}],${tid}" ActionType="NamedCallback" />
+                    </Actions>
+                  </Trigger>
+                  <Trigger Enabled="true" Name="获取柱子" Id="7a22b926-08f7-48b5-8238-82e3ad616991" RegularExpression="^.{14} AddCombatant 03:(?&lt;zid&gt;.{8}):.+:00::1186:8731:.+:10000:::(?&lt;x&gt;[^:]+):(?&lt;y&gt;[^:]+):">
+                    <Actions>
+                      <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="p2zhuzi:${zid},${x},${y}" ActionType="NamedCallback" />
+                    </Actions>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers>
+              <Trigger Enabled="true" Sequential="True" Name="火神开场位置" Id="4becc5c3-75dc-4089-8875-f62ed5ee3d6e" RegularExpression="^.{14} 271 10F:(?&lt;id&gt;.{8}):[^:]+:00:00:(?&lt;x&gt;80.5|100.0|119.5)000:(?&lt;y&gt;80.5|100.0|119.5)000">
+                <Actions>
+                  <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="p2hs:${id},${x},${y}" ActionType="NamedCallback" />
+                </Actions>
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:tuw_state}" ExpressionTypeL="String" ExpressionR="火神开场" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Name="柱子开场位置async" Id="574e6d8e-4f3a-4066-9795-697d342fe4fb" RegularExpression="^.{14} 263 107:.{8}:2B61:(?&lt;x&gt;[^:]+):(?&lt;y&gt;[^:]+):">
+                <Actions>
+                  <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="p2safe:${x},${y}" ActionType="NamedCallback" />
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:tuw_state}" ExpressionTypeL="String" ExpressionR="火神开场" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Name="P2时间轴" Id="ce7c5a78-90e6-4b42-9e22-256a1f06e70b" RegularExpression="^.{14} 267 10B:.{8}:.{8}:066C:4B67:" PrevActionsRefire="Deny">
+                <Actions>
+                  <Action OrderNumber="1" TriggerOp="CancelTrigger" TriggerId="33bc122a-3601-4634-892f-d4881aee1d8b" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="2" VariableOp="SetString" VariableName="tuw_state" VariableExpression="火神开场" TriggerOp="CancelTrigger" TriggerId="33bc122a-3601-4634-892f-d4881aee1d8b" ActionType="Variable" Asynchronous="False" />
+                  <Action OrderNumber="3" UseTTSTextExpression="开疾跑" ActionType="UseTTS" Asynchronous="False" />
+                  <Action OrderNumber="4" UseTTSTextExpression="两次AOE" ActionType="UseTTS" ExecutionDelayExpression="11000" Asynchronous="False" />
+                  <Action OrderNumber="5" VariableOp="SetString" VariableName="tuw_state" VariableExpression="火神" TriggerOp="CancelTrigger" TriggerId="33bc122a-3601-4634-892f-d4881aee1d8b" ActionType="Variable" Asynchronous="False" />
+                  <Action OrderNumber="6" UseTTSTextExpression="群盾防击退" ActionType="UseTTS" ExecutionDelayExpression="8000" Asynchronous="False" />
+                  <Action OrderNumber="7" JsonEndpointExpression="http://127.0.0.1:${var:标点工具监听端口}/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:99.8104248,&quot;Y&quot;:0.0,&quot;Z&quot;:81.30746,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:118.614006,&quot;Y&quot;:-9.536743E-07,&quot;Z&quot;:101.205719,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:99.36147,&quot;Y&quot;:-1.90734863E-06,&quot;Z&quot;:118.309875,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:81.8219,&quot;Y&quot;:-1.90734863E-06,&quot;Z&quot;:100.209518,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:99.73788,&quot;Y&quot;:9.536743E-07,&quot;Z&quot;:100.647522,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:5,&quot;Active&quot;:false}}" NamedCallbackName="LatihasTUW" NamedCallbackParam="initplace" TriggerId="eb30602e-1253-4f5e-8c5f-f10bb2319db3" TriggerForce="regexp" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="8" UseTTSTextExpression="三连死刑后，挑衅" ActionType="UseTTS" ExecutionDelayExpression="6000" Asynchronous="False" />
+                  <Action OrderNumber="9" UseTTSTextExpression="赢导地火,连线靠近" ActionType="UseTTS" ExecutionDelayExpression="18000" Asynchronous="False" />
+                  <Action OrderNumber="10" UseTTSTextExpression="AOE" ActionType="UseTTS" ExecutionDelayExpression="33000" Asynchronous="False" Description="44" />
+                  <Action OrderNumber="11" NamedCallbackName="LatihasTUW" NamedCallbackParam="p2zhuzi23" UseTTSTextExpression="AOE" TriggerId="d1f5a763-0462-4545-b79c-042df5c20e45" TriggerForce="regexp" ActionType="NamedCallback" Asynchronous="False" Description="44" />
+                  <Action OrderNumber="12" UseTTSTextExpression="赢导地火,三点左右" UseTTSRateExpression="+2" ActionType="UseTTS" ExecutionDelayExpression="7000" Asynchronous="False" Description="56" />
+                  <Action OrderNumber="13" UseTTSTextExpression="十字冲" ActionType="UseTTS" ExecutionDelayExpression="14000" Asynchronous="False" />
+                  <Action OrderNumber="14" UseTTSTextExpression="六人分摊" ActionType="UseTTS" ExecutionDelayExpression="12000" Asynchronous="False" />
+                  <Action OrderNumber="15" UseTTSTextExpression="火神冲看本体" ActionType="UseTTS" ExecutionDelayExpression="11000" Asynchronous="False" />
+                  <Action OrderNumber="16" UseTTSTextExpression="三连死刑" ActionType="UseTTS" ExecutionDelayExpression="18000" Asynchronous="False" />
+                  <Action OrderNumber="17" UseTTSTextExpression="赢导地火" ActionType="UseTTS" ExecutionDelayExpression="11000" Asynchronous="False" />
+                  <Action OrderNumber="18" UseTTSTextExpression="分摊" ActionType="UseTTS" ExecutionDelayExpression="8000" Asynchronous="False" />
+                </Actions>
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="73f52666-0f35-465f-8750-33d1fc5e8b98" Name="P3土神" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Sequential="True" Name="泰坦上天播报" Id="3f312643-9dff-4b16-8680-eb3cdd42d20f" RegularExpression="^.{14} StartsCasting 14:(?&lt;id&gt;.{8}):[^:]+:2B66:" PeriodRefire="Deny" RefirePeriodExpression="100">
+                <Actions>
+                  <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="p3fly:${id}" ActionType="NamedCallback" ExecutionDelayExpression="100" Asynchronous="False" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="上天后恢复标点" Id="8c8b407a-cb15-4b0f-bd68-05025cf74504" RegularExpression=".{14} AOEActionEffect 16:.{8}:[^:]+:2B66:">
+                <Actions>
+                  <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:${var:标点工具监听端口}/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:99.8104248,&quot;Y&quot;:0.0,&quot;Z&quot;:81.30746,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:118.614006,&quot;Y&quot;:-9.536743E-07,&quot;Z&quot;:101.205719,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:99.36147,&quot;Y&quot;:-1.90734863E-06,&quot;Z&quot;:118.309875,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:81.8219,&quot;Y&quot;:-1.90734863E-06,&quot;Z&quot;:100.209518,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:99.73788,&quot;Y&quot;:9.536743E-07,&quot;Z&quot;:100.647522,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:5,&quot;Active&quot;:false}}" NamedCallbackName="LatihasTUW" NamedCallbackParam="initplace" TriggerId="eb30602e-1253-4f5e-8c5f-f10bb2319db3" TriggerForce="regexp" ActionType="NamedCallback" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="泰坦打奶牢" Id="55dec7cf-84a0-4432-9dc5-3c6b6ec5613c" RegularExpression="^.{14} StartsCasting 14:(?&lt;id&gt;.{8}):[^:]+:2CB8:">
+                <Actions>
+                  <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="p3nl:${id}" ActionType="NamedCallback" />
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:tuw_state}" ExpressionTypeL="String" ExpressionR="三桶后" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Name="三连桶点名标记async" Id="af89726a-d577-4c8e-a828-9ba9e4d9003c" RegularExpression="^.{14} ActionEffect 15:.{8}:[^:]+:2B6(?:B|C):[^:]+:.{8}:(?&lt;Name&gt;[^:]+):">
+                <Actions>
+                  <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="p3threebucket:${Name}" ActionType="NamedCallback" />
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:tuw_state}" ExpressionTypeL="String" ExpressionR="土神" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Name="P3时间轴" Id="5e8afdd7-61d7-4793-b22b-260218c4e795" RegularExpression="^.{14} 267 10B:.{8}:.{8}:04A1:4B6C:" PrevActionsRefire="Deny">
+                <Actions>
+                  <Action OrderNumber="1" TriggerOp="CancelTrigger" TriggerId="ce7c5a78-90e6-4b42-9e22-256a1f06e70b" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="2" VariableOp="SetString" VariableName="tuw_state" VariableExpression="土神" TriggerOp="CancelTrigger" TriggerId="33bc122a-3601-4634-892f-d4881aee1d8b" ActionType="Variable" Asynchronous="False" />
+                  <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:${var:标点工具监听端口}/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:99.8104248,&quot;Y&quot;:0.0,&quot;Z&quot;:81.30746,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:118.614006,&quot;Y&quot;:-9.536743E-07,&quot;Z&quot;:101.205719,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:99.36147,&quot;Y&quot;:-1.90734863E-06,&quot;Z&quot;:118.309875,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:81.8219,&quot;Y&quot;:-1.90734863E-06,&quot;Z&quot;:100.209518,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:99.73788,&quot;Y&quot;:9.536743E-07,&quot;Z&quot;:100.647522,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:5,&quot;Active&quot;:false}}" NamedCallbackName="LatihasTUW" NamedCallbackParam="initplace" TriggerId="eb30602e-1253-4f5e-8c5f-f10bb2319db3" TriggerForce="regexp" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="4" UseTTSTextExpression="群奶" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="3500" Asynchronous="False" />
+                  <Action OrderNumber="5" UseTTSTextExpression="AOE" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="3500" Asynchronous="False" />
+                  <Action OrderNumber="6" UseTTSTextExpression="死刑，赢导流沙" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="16000" Asynchronous="False" />
+                  <Action OrderNumber="7" UseTTSTextExpression="去反方向" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="7000" Asynchronous="False" />
+                  <Action OrderNumber="8" UseTTSTextExpression="站石牢" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="15000" Asynchronous="False" Description="33" />
+                  <Action OrderNumber="9" TriggerOp="DisableTrigger" TriggerId="ec271fec-808c-40d4-92be-db48f5527b03" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="10" UseTTSTextExpression="连续AOE" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="10000" Asynchronous="False" Description="37" />
+                  <Action OrderNumber="11" VariableOp="SetString" VariableName="tuw_state" VariableExpression="三桶后" ActionType="Variable" Asynchronous="False" />
+                  <Action OrderNumber="12" JsonEndpointExpression="http://127.0.0.1:${var:标点工具监听端口}/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:99.8104248,&quot;Y&quot;:0.0,&quot;Z&quot;:81.30746,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:118.614006,&quot;Y&quot;:-9.536743E-07,&quot;Z&quot;:101.205719,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:99.36147,&quot;Y&quot;:-1.90734863E-06,&quot;Z&quot;:118.309875,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:81.8219,&quot;Y&quot;:-1.90734863E-06,&quot;Z&quot;:100.209518,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:99.73788,&quot;Y&quot;:9.536743E-07,&quot;Z&quot;:100.647522,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:5,&quot;Active&quot;:false}}" NamedCallbackName="LatihasTUW" NamedCallbackParam="initplace" TriggerId="eb30602e-1253-4f5e-8c5f-f10bb2319db3" TriggerForce="regexp" ActionType="NamedCallback" ExecutionDelayExpression="4000" Asynchronous="False" />
+                  <Action OrderNumber="13" UseTTSTextExpression="引导流沙" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="8000" Asynchronous="False" Description="44" />
+                  <Action OrderNumber="14" UseTTSTextExpression="穿冲拳" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="6000" Asynchronous="False" Description="47" />
+                  <Action OrderNumber="15" UseTTSTextExpression="去反方向" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="7000" Asynchronous="False" Description="56">
+                    <Condition Enabled="false" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Healer" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="16" UseTTSTextExpression="打石牢，穿冲拳" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="14000" Asynchronous="False" />
+                  <Action OrderNumber="17" JsonEndpointExpression="http://127.0.0.1:${var:标点工具监听端口}/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:99.8104248,&quot;Y&quot;:0.0,&quot;Z&quot;:81.30746,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:118.614006,&quot;Y&quot;:-9.536743E-07,&quot;Z&quot;:101.205719,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:99.36147,&quot;Y&quot;:-1.90734863E-06,&quot;Z&quot;:118.309875,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:81.8219,&quot;Y&quot;:-1.90734863E-06,&quot;Z&quot;:100.209518,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:99.73788,&quot;Y&quot;:9.536743E-07,&quot;Z&quot;:100.647522,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:5,&quot;Active&quot;:false}}" NamedCallbackName="LatihasTUW" NamedCallbackParam="initplace" TriggerId="eb30602e-1253-4f5e-8c5f-f10bb2319db3" TriggerForce="regexp" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="18" UseTTSTextExpression="连续AOE" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="13000" Asynchronous="False" />
+                  <Action OrderNumber="19" UseTTSTextExpression="顺劈加死刑" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="7000" Asynchronous="False" />
+                  <Action OrderNumber="20" NamedCallbackName="LatihasTUW" NamedCallbackParam="p3lb" UseTTSTextExpression="连续AOE" UseTTSRateExpression="1" ActionType="NamedCallback" ExecutionDelayExpression="3000" Asynchronous="False">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:tuw_lb}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="21" UseTTSTextExpression="靠近T" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="3000" Asynchronous="False" />
+                  <Action OrderNumber="22" UseTTSTextExpression="引导流沙穿冲拳，贴边" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="2000" Asynchronous="False" />
+                  <Action OrderNumber="23" UseTTSTextExpression="顺劈加死刑" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="17000" Asynchronous="False" />
+                  <Action OrderNumber="24" UseTTSTextExpression="引导流沙三次" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="7000" Asynchronous="False" />
+                  <Action OrderNumber="25" UseTTSTextExpression="连续aoe" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="8000" Asynchronous="False" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="一杆进洞左右async" Id="ec271fec-808c-40d4-92be-db48f5527b03" RegularExpression="^.{14} AddCombatant 03:.{8}:.+:00::1803:8728:.+:10000:::(?&lt;x&gt;[^:]+):(?&lt;y&gt;[^:]+):">
+                <Actions>
+                  <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="p3ygjd:${x},${y}" ActionType="NamedCallback" />
+                </Actions>
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="74e191b8-6f00-493a-86a5-139e8c8ccd04" Name="P4转场123运" Enabled="true">
+            <Folders>
+              <Folder Id="15950e38-b593-4735-af22-4c84beb155f1" Name="1运" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="P4一运" Id="b5eeb0a3-876c-4728-929c-a0e6fd929aaf" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]+:2B76:" PrevActionsRefire="Deny" Scheduling="FromRefirePeriod" PeriodRefire="Deny" RefirePeriodExpression="120000">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="读条衣运" UseTTSRateExpression="1" ActionType="UseTTS" Asynchronous="False" />
+                      <Action OrderNumber="2" VariableOp="SetString" VariableName="tuw_state" VariableExpression="一运" ActionType="Variable" Asynchronous="False" />
+                      <Action OrderNumber="3" UseTTSTextExpression="开疾跑" ActionType="UseTTS" ExecutionDelayExpression="9000" Asynchronous="False" />
+                      <Action OrderNumber="4" ListVariableOp="Push" ListVariableName="tuw_1yun_safe" ListVariableExpression="W" NamedCallbackName="LatihasTUW" NamedCallbackParam="p41" VariableOp="SetString" VariableName="tuw_1yun_safe1" VariableExpression="左西" ActionType="NamedCallback" ExecutionDelayExpression="1000" Asynchronous="False" />
+                      <Action OrderNumber="5" UseTTSTextExpression="躲地裂" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="4000" Asynchronous="False" Description="33" />
+                      <Action OrderNumber="6" UseTTSTextExpression="贴边穿第四个字" UseTTSRateExpression="3" ActionType="UseTTS" ExecutionDelayExpression="3000" Asynchronous="False" Description="37" />
+                      <Action OrderNumber="7" UseTTSTextExpression="躲羽毛" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="5000" Asynchronous="False" Description="44" />
+                      <Action OrderNumber="8" NamedCallbackName="LatihasTUW" NamedCallbackParam="initplace" TriggerForce="regexp" ActionType="NamedCallback" Asynchronous="False" />
+                      <Action OrderNumber="9" NamedCallbackName="LatihasTUW" NamedCallbackParam="clear2" ActionType="NamedCallback" Asynchronous="False" />
+                      <Action OrderNumber="10" UseTTSTextExpression="赢导地火" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="9500" Asynchronous="False" Description="47" />
+                      <Action OrderNumber="11" UseTTSTextExpression="边缘贴贴" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="14000" Asynchronous="False" Description="56">
+                        <Condition Enabled="false" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Healer" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="12" UseTTSTextExpression="穿" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="8000" Asynchronous="False" />
+                      <Action OrderNumber="13" UseTTSTextExpression="连续aoe" UseTTSRateExpression="2" ActionType="UseTTS" ExecutionDelayExpression="4000" Asynchronous="False" />
+                      <Action OrderNumber="14" UseTTSTextExpression="吸附炸弹 换t" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="5000" Asynchronous="False" />
+                      <Action OrderNumber="15" UseTTSTextExpression="躲羽毛" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="6500" Asynchronous="False" />
+                      <Action OrderNumber="16" UseTTSTextExpression="躲羽毛" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="4000" Asynchronous="False" />
+                    </Actions>
+                  </Trigger>
+                  <Trigger Enabled="true" Name="光辉炎柱" Id="2f71b822-9119-4c0a-9df2-15796b84bb9d" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]+:2B7D:" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="地火准备" ActionType="UseTTS" Asynchronous="False" />
+                      <Action OrderNumber="2" NamedCallbackName="LatihasTUW" NamedCallbackParam="p41place2" ActionType="NamedCallback" Asynchronous="False" />
+                      <Action OrderNumber="3" UseTTSTextExpression="3" ActionType="UseTTS" ExecutionDelayExpression="1000" Asynchronous="False" />
+                      <Action OrderNumber="4" UseTTSTextExpression="2" ActionType="UseTTS" ExecutionDelayExpression="1000" Asynchronous="False" />
+                      <Action OrderNumber="5" UseTTSTextExpression="1" ActionType="UseTTS" ExecutionDelayExpression="1000" Asynchronous="False" />
+                      <Action OrderNumber="6" UseTTSTextExpression="冲鸭" UseTTSRateExpression="-7" ActionType="UseTTS" ExecutionDelayExpression="1000" Asynchronous="False" />
+                      <Action OrderNumber="7" NamedCallbackName="LatihasTUW" NamedCallbackParam="clear2" ActionType="NamedCallback" Asynchronous="False" />
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:tuw_state}" ExpressionTypeL="String" ExpressionR="一运" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Sequential="True" Name="泰坦位置" Id="54aa1103-8b4e-4cc0-b657-3c4e52f3a0c5" RegularExpression="^.{14} AddCombatant 03:.{8}:.+:00::1801:9020:.+:10000:::(?&lt;x&gt;[^:]+):86.30:" PeriodRefire="Deny" RefirePeriodExpression="50000">
+                    <Actions>
+                      <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="p41taitan:${x}" VariableOp="SetString" VariableName="tuw_1yun_taitan" VariableExpression="右右右" ActionType="NamedCallback" />
+                    </Actions>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="c37fa844-e2e2-48df-be30-585b453ba7ca" Name="3运" Enabled="true">
+                <Folders>
+                  <Folder Id="c9cd742d-047e-46c4-98ba-177f23cfeb69" Name="3运播报" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Name="风枪播报async" Id="d20528da-efe2-4783-a641-2f7a670083bd" RegularExpression="^.{14} TargetIcon 1B:.{8}:(?&lt;RoleName&gt;[^:]+):0000:0000:0010">
+                        <Actions>
+                          <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="tuw_3yun_bobao" ListVariableExpression="${RoleName}" NamedCallbackName="LatihasTUW" NamedCallbackParam="p43fq:${RoleName}" ActionType="NamedCallback" />
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:tuw_state}" ExpressionTypeL="String" ExpressionR="三运" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Name="地火播报async" Id="b2a6a2fa-1a37-453e-b024-de08ce4f0feb" RegularExpression="^.{14} 263 107:.{8}:2B5A:(?&lt;x&gt;[^:]+):(?&lt;y&gt;[^:]+):">
+                        <Actions>
+                          <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="p43dh:${x},${y}" ActionType="NamedCallback" />
+                          <Action OrderNumber="2" TriggerOp="DisableTrigger" TriggerId="b2a6a2fa-1a37-453e-b024-de08ce4f0feb" ActionType="Trigger" ExecutionDelayExpression="1000" />
+                        </Actions>
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:tuw_state}" ExpressionTypeL="String" ExpressionR="三运" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Name="石牢" Id="b6a5524c-1bdb-4448-a139-270296f3a756" RegularExpression="^.{14} ActionEffect 15:.{8}:[^:]+:2B6(?:B|C):[^:]+:.{8}:(?&lt;Name&gt;[^:]+):">
+                        <Actions>
+                          <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="broadcast:石牢 ${Name}" ActionType="NamedCallback" />
+                          <Action OrderNumber="2" UseTTSTextExpression="石牢石牢" UseTTSRateExpression="3" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${RoleName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="3" LogMessageText="[Latihas Tip] 石牢石牢:0:0:main" LogProcess="True" TriggerId="d13bc1a9-f88c-4be0-8e52-2a3d431d4062" TriggerText="Tip_Subtitle:石牢石牢:0:0:main" ActionType="LogMessage">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${RoleName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:tuw_state}" ExpressionTypeL="String" ExpressionR="三运" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                        </Condition>
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                </Folders>
+                <Triggers>
+                  <Trigger Enabled="true" Name="P4三运" Id="3a769180-2383-4793-b072-06536dfc472f" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]+:2D4D:" PrevActionsRefire="Deny" PeriodRefire="Deny">
+                    <Actions>
+                      <Action OrderNumber="1" TriggerOp="CancelTrigger" TriggerId="62229d40-00a0-4fc6-b6ce-2962b7b15ccd" ActionType="Trigger" Asynchronous="False" />
+                      <Action OrderNumber="2" UseTTSTextExpression="读条三运，准备站位" UseTTSRateExpression="2" ActionType="UseTTS" Asynchronous="False" />
+                      <Action OrderNumber="3" VariableOp="SetString" VariableName="tuw_state" VariableExpression="三运" ActionType="Variable" Asynchronous="False" />
+                      <Action OrderNumber="4" NamedCallbackName="LatihasTUW" NamedCallbackParam="p43place" ActionType="NamedCallback" Asynchronous="False" />
+                      <Action OrderNumber="5" UseTTSTextExpression="看好点名" UseTTSRateExpression="2" ActionType="UseTTS" ExecutionDelayExpression="10000" Asynchronous="False" Description="3.15" />
+                      <Action OrderNumber="6" JsonEndpointExpression="http://127.0.0.1:${var:标点工具监听端口}/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:99.8104248,&quot;Y&quot;:0.0,&quot;Z&quot;:81.30746,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:118.614006,&quot;Y&quot;:-9.536743E-07,&quot;Z&quot;:101.205719,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:99.36147,&quot;Y&quot;:-1.90734863E-06,&quot;Z&quot;:118.309875,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:81.8219,&quot;Y&quot;:-1.90734863E-06,&quot;Z&quot;:100.209518,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:99.73788,&quot;Y&quot;:9.536743E-07,&quot;Z&quot;:100.647522,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:0.0,&quot;Y&quot;:0.0,&quot;Z&quot;:0.0,&quot;ID&quot;:5,&quot;Active&quot;:false}}" NamedCallbackName="LatihasTUW" NamedCallbackParam="initplace" TriggerId="eb30602e-1253-4f5e-8c5f-f10bb2319db3" TriggerForce="regexp" ActionType="NamedCallback" ExecutionDelayExpression="1000" Asynchronous="False" />
+                      <Action OrderNumber="7" UseTTSTextExpression="鸟叫完走" UseTTSRateExpression="3" ActionType="UseTTS" ExecutionDelayExpression="5000" Asynchronous="False" Description="3.21" />
+                      <Action OrderNumber="8" UseTTSTextExpression="打石牢，躲羽毛，注意场边羽毛" UseTTSRateExpression="3" ActionType="UseTTS" ExecutionDelayExpression="3000" Asynchronous="False" Description="3.24" />
+                      <Action OrderNumber="9" UseTTSTextExpression="MT接线，穿冲拳分摊" UseTTSRateExpression="2" ActionType="UseTTS" ExecutionDelayExpression="9000" Asynchronous="False" />
+                      <Action OrderNumber="10" UseTTSTextExpression="愈聊，躲羽毛，去中间" UseTTSRateExpression="2" ActionType="UseTTS" ExecutionDelayExpression="8000" Asynchronous="False" />
+                    </Actions>
+                  </Trigger>
+                  <Trigger Enabled="true" Name="潜地炮追踪" Id="c0347fdb-11bd-4c17-9755-a6879398ef10" RegularExpression="^.{14} 264 108:.{8}:2B83:.{8}:1:(?&lt;x&gt;[^:]+):(?&lt;y&gt;[^:]+):">
+                    <Actions>
+                      <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="p43qdptrace:${x},${y}" ActionType="NamedCallback" />
+                    </Actions>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers>
+              <Trigger Enabled="true" Name="转场拉哈布雷亚" Id="5cf27bc9-d770-4862-90b5-114bfb4ef98b" RegularExpression="^.{14} 267 10B:.{8}:.{8}:0709:4B71:" PrevActionsRefire="Deny">
+                <Actions>
+                  <Action OrderNumber="1" TriggerOp="CancelTrigger" TriggerId="5e8afdd7-61d7-4793-b22b-260218c4e795" ActionType="Trigger" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="2运" Id="62229d40-00a0-4fc6-b6ce-2962b7b15ccd" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]+:2D4C:">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="读条二运，神兵左侧集合" UseTTSRateExpression="1" ActionType="UseTTS" Asynchronous="False" />
+                  <Action OrderNumber="2" VariableOp="SetString" VariableName="tuw_state" VariableExpression="二运" ActionType="Variable" Asynchronous="False" />
+                  <Action OrderNumber="3" UseTTSTextExpression="三连流沙，右左上" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="11000" Asynchronous="False" />
+                  <Action OrderNumber="4" NamedCallbackName="LatihasTUW" NamedCallbackParam="p42place2" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="5" NamedCallbackName="LatihasTUW" NamedCallbackParam="p42place4d3" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="6" UseTTSTextExpression="躲羽毛" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="10000" Asynchronous="False" />
+                  <Action OrderNumber="7" UseTTSTextExpression="穿冲拳" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="6000" Asynchronous="False" />
+                  <Action OrderNumber="8" NamedCallbackName="LatihasTUW" NamedCallbackParam="p42hs" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="9" UseTTSTextExpression="治疗接线" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="4000" Asynchronous="False" />
+                  <Action OrderNumber="10" NamedCallbackName="LatihasTUW" NamedCallbackParam="p42place2rf" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="11" UseTTSTextExpression="躲羽毛" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="8000" Asynchronous="False" />
+                  <Action OrderNumber="12" UseTTSTextExpression="穿台风眼" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="21000" Asynchronous="False" />
+                  <Action OrderNumber="13" UseTTSTextExpression="顺劈" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="8000" Asynchronous="False" />
+                  <Action OrderNumber="14" UseTTSTextExpression="二仇炮，待毁有击退" UseTTSRateExpression="3" ActionType="UseTTS" ExecutionDelayExpression="8000" Asynchronous="False" />
+                  <Action OrderNumber="15" UseTTSTextExpression="顺劈" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="11000" Asynchronous="False" />
+                </Actions>
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="bb199850-6aeb-4b6e-8c4f-95ef602e3380" Name="P5家长会" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Name="火风土" Id="3bd8c61a-a828-4bd8-aa8e-8a645636fdb6" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]+:2CD4:" PrevActionsRefire="Deny">
+                <Actions>
+                  <Action OrderNumber="1" TriggerOp="DisableTrigger" TriggerId="c49f9b23-1da0-447a-93f6-08b2e065122a" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="2" TriggerOp="DisableTrigger" TriggerId="284f7968-3ed0-4bb1-adee-3a7d5dd364b6" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="3" UseTTSTextExpression="火风土，开疾跑" UseTTSRateExpression="4" ActionType="UseTTS" Asynchronous="False" RefireInterrupt="True" />
+                  <Action OrderNumber="4" UseTTSTextExpression="走走走" UseTTSRateExpression="4" ActionType="UseTTS" ExecutionDelayExpression="7500" Asynchronous="False" RefireInterrupt="True" />
+                  <Action OrderNumber="5" NamedCallbackName="LatihasTUW" NamedCallbackParam="jzhA" TriggerId="0cd509ba-d3cd-4970-bcf0-c4613d36971e" TriggerForce="regexp" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="6" UseTTSTextExpression="从侧边穿钢铁月环，去3点" UseTTSRateExpression="4" ActionType="UseTTS" ExecutionDelayExpression="16500" Asynchronous="False" RefireInterrupt="True" />
+                  <Action OrderNumber="7" NamedCallbackName="LatihasTUW" NamedCallbackParam="jzh3" TriggerId="0cd509ba-d3cd-4970-bcf0-c4613d36971e" TriggerForce="regexp" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="8" UseTTSTextExpression="穿穿穿" UseTTSRateExpression="4" ActionType="UseTTS" ExecutionDelayExpression="5000" Asynchronous="False" RefireInterrupt="True" />
+                  <Action OrderNumber="9" UseTTSTextExpression="等羽毛，回A点" UseTTSRateExpression="4" ActionType="UseTTS" ExecutionDelayExpression="10000" Asynchronous="False" RefireInterrupt="True" />
+                  <Action OrderNumber="10" NamedCallbackName="LatihasTUW" NamedCallbackParam="jzhA" TriggerId="0cd509ba-d3cd-4970-bcf0-c4613d36971e" TriggerForce="regexp" ActionType="NamedCallback" ExecutionDelayExpression="2000" Asynchronous="False" />
+                  <Action OrderNumber="11" UseTTSTextExpression="三连流沙" UseTTSRateExpression="4" ActionType="UseTTS" ExecutionDelayExpression="3000" Asynchronous="False" RefireInterrupt="True" />
+                  <Action OrderNumber="12" NamedCallbackName="LatihasTUW" NamedCallbackParam="jzh2" TriggerId="0cd509ba-d3cd-4970-bcf0-c4613d36971e" TriggerForce="regexp" ActionType="NamedCallback" ExecutionDelayExpression="3000" Asynchronous="False" />
+                  <Action OrderNumber="13" UseTTSTextExpression="瞬发群盾" UseTTSRateExpression="4" ActionType="UseTTS" ExecutionDelayExpression="3000" Asynchronous="False" RefireInterrupt="True" />
+                  <Action OrderNumber="14" NamedCallbackName="LatihasTUW" NamedCallbackParam="jzhA" TriggerId="0cd509ba-d3cd-4970-bcf0-c4613d36971e" TriggerForce="regexp" ActionType="NamedCallback" Asynchronous="False" />
+                </Actions>
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:tuw_state}" ExpressionTypeL="String" ExpressionR="家长会" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Name="土火风" Id="284f7968-3ed0-4bb1-adee-3a7d5dd364b6" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]+:2CD5:" PrevActionsRefire="Deny">
+                <Actions>
+                  <Action OrderNumber="1" TriggerOp="DisableTrigger" TriggerId="c49f9b23-1da0-447a-93f6-08b2e065122a" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="2" TriggerOp="DisableTrigger" TriggerId="3bd8c61a-a828-4bd8-aa8e-8a645636fdb6" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="3" UseTTSTextExpression="土火风，三连流沙" UseTTSRateExpression="4" ActionType="UseTTS" Asynchronous="False" RefireInterrupt="True" />
+                  <Action OrderNumber="4" NamedCallbackName="LatihasTUW" NamedCallbackParam="jzh2" TriggerId="0cd509ba-d3cd-4970-bcf0-c4613d36971e" TriggerForce="regexp" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="5" NamedCallbackName="LatihasTUW" NamedCallbackParam="jzhA" TriggerId="0cd509ba-d3cd-4970-bcf0-c4613d36971e" TriggerForce="regexp" ActionType="NamedCallback" ExecutionDelayExpression="3000" Asynchronous="False" />
+                  <Action OrderNumber="6" UseTTSTextExpression="瞬发群盾" UseTTSRateExpression="4" ActionType="UseTTS" ExecutionDelayExpression="3000" Asynchronous="False" RefireInterrupt="True" />
+                  <Action OrderNumber="7" NamedCallbackName="LatihasTUW" NamedCallbackParam="jzh2" TriggerId="0cd509ba-d3cd-4970-bcf0-c4613d36971e" TriggerForce="regexp" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="8" UseTTSTextExpression="回A点放地火" UseTTSRateExpression="4" ActionType="UseTTS" ExecutionDelayExpression="10000" Asynchronous="False" RefireInterrupt="True" />
+                  <Action OrderNumber="9" NamedCallbackName="LatihasTUW" NamedCallbackParam="jzhA" TriggerId="0cd509ba-d3cd-4970-bcf0-c4613d36971e" TriggerForce="regexp" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="10" UseTTSTextExpression="开疾跑" UseTTSRateExpression="4" ActionType="UseTTS" ExecutionDelayExpression="7000" Asynchronous="False" RefireInterrupt="True" />
+                  <Action OrderNumber="11" UseTTSTextExpression="走走走" UseTTSRateExpression="4" ActionType="UseTTS" ExecutionDelayExpression="3500" Asynchronous="False" RefireInterrupt="True" />
+                  <Action OrderNumber="12" NamedCallbackName="LatihasTUW" NamedCallbackParam="jzh2" TriggerId="0cd509ba-d3cd-4970-bcf0-c4613d36971e" TriggerForce="regexp" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="13" UseTTSTextExpression="从侧边穿钢铁月环,去3点" UseTTSRateExpression="4" ActionType="UseTTS" ExecutionDelayExpression="16500" Asynchronous="False" RefireInterrupt="True" />
+                  <Action OrderNumber="14" NamedCallbackName="LatihasTUW" NamedCallbackParam="jzh3" TriggerId="0cd509ba-d3cd-4970-bcf0-c4613d36971e" TriggerForce="regexp" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="15" UseTTSTextExpression="穿穿穿" UseTTSRateExpression="4" ActionType="UseTTS" ExecutionDelayExpression="5000" Asynchronous="False" RefireInterrupt="True" />
+                  <Action OrderNumber="16" UseTTSTextExpression="躲羽毛" UseTTSRateExpression="4" ActionType="UseTTS" ExecutionDelayExpression="11500" Asynchronous="False" RefireInterrupt="True" />
+                </Actions>
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:tuw_state}" ExpressionTypeL="String" ExpressionR="家长会" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Name="P5三神家长会" Id="fb56ab97-3c17-48d8-b173-bfe3222c40b2" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]+:2B88:" PrevActionsRefire="Deny" PeriodRefire="Deny">
+                <Actions>
+                  <Action OrderNumber="1" VariableOp="SetString" VariableName="tuw_state" VariableExpression="家长会" ActionType="Variable" Asynchronous="False" RefireInterrupt="True" />
+                  <Action OrderNumber="2" TriggerOp="CancelTrigger" TriggerId="3a769180-2383-4793-b072-06536dfc472f" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="3" NamedCallbackName="LatihasTUW" NamedCallbackParam="p42place2" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="4" UseTTSTextExpression="站位撞球" UseTTSRateExpression="2" ActionType="UseTTS" Asynchronous="False" />
+                  <Action OrderNumber="5" UseTTSTextExpression="A点集合" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="11000" Asynchronous="False" />
+                  <Action OrderNumber="6" NamedCallbackName="LatihasTUW" NamedCallbackParam="jzhA" TriggerId="0cd509ba-d3cd-4970-bcf0-c4613d36971e" TriggerForce="regexp" ActionType="NamedCallback" Asynchronous="False" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="风火土" Id="c49f9b23-1da0-447a-93f6-08b2e065122a" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]+:2CD3:" PrevActionsRefire="Deny">
+                <Actions>
+                  <Action OrderNumber="1" TriggerOp="DisableTrigger" TriggerId="3bd8c61a-a828-4bd8-aa8e-8a645636fdb6" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="2" TriggerOp="DisableTrigger" TriggerId="284f7968-3ed0-4bb1-adee-3a7d5dd364b6" ActionType="Trigger" Asynchronous="False" />
+                  <Action OrderNumber="3" UseTTSTextExpression="风火土，从侧边穿钢铁月环，去3点" UseTTSRateExpression="4" ActionType="UseTTS" Asynchronous="False" RefireInterrupt="True" />
+                  <Action OrderNumber="4" NamedCallbackName="LatihasTUW" NamedCallbackParam="jzh3" TriggerId="0cd509ba-d3cd-4970-bcf0-c4613d36971e" TriggerForce="regexp" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="5" UseTTSTextExpression="穿穿穿" UseTTSRateExpression="4" ActionType="UseTTS" ExecutionDelayExpression="9000" Asynchronous="False" RefireInterrupt="True" />
+                  <Action OrderNumber="6" UseTTSTextExpression="躲羽毛，回A点，放地火" UseTTSRateExpression="4" ActionType="UseTTS" ExecutionDelayExpression="11500" Asynchronous="False" RefireInterrupt="True" Description="16.5s" />
+                  <Action OrderNumber="7" NamedCallbackName="LatihasTUW" NamedCallbackParam="jzhA" TriggerId="0cd509ba-d3cd-4970-bcf0-c4613d36971e" TriggerForce="regexp" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="8" UseTTSTextExpression="火神开疾跑" UseTTSRateExpression="4" ActionType="UseTTS" ExecutionDelayExpression="3500" Asynchronous="False" RefireInterrupt="True" Description="16.5s" />
+                  <Action OrderNumber="9" UseTTSTextExpression="走走走" UseTTSRateExpression="4" ActionType="UseTTS" ExecutionDelayExpression="2500" Asynchronous="False" RefireInterrupt="True" Description="16.5s" />
+                  <Action OrderNumber="10" NamedCallbackName="LatihasTUW" NamedCallbackParam="jzh2" TriggerId="0cd509ba-d3cd-4970-bcf0-c4613d36971e" TriggerForce="regexp" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="11" UseTTSTextExpression="原地不动" UseTTSRateExpression="4" ActionType="UseTTS" ExecutionDelayExpression="6500" Asynchronous="False" RefireInterrupt="True" Description="16.5s" />
+                  <Action OrderNumber="12" UseTTSTextExpression="三连流沙" UseTTSRateExpression="4" ActionType="UseTTS" ExecutionDelayExpression="10000" Asynchronous="False" RefireInterrupt="True" Description="16.5s" />
+                  <Action OrderNumber="13" NamedCallbackName="LatihasTUW" NamedCallbackParam="jzhA" TriggerId="0cd509ba-d3cd-4970-bcf0-c4613d36971e" TriggerForce="regexp" ActionType="NamedCallback" Asynchronous="False" />
+                  <Action OrderNumber="14" NamedCallbackName="LatihasTUW" NamedCallbackParam="jzh2" TriggerId="0cd509ba-d3cd-4970-bcf0-c4613d36971e" TriggerForce="regexp" ActionType="NamedCallback" ExecutionDelayExpression="3000" Asynchronous="False" />
+                  <Action OrderNumber="15" UseTTSTextExpression="瞬发群盾" UseTTSRateExpression="4" ActionType="UseTTS" ExecutionDelayExpression="3000" Asynchronous="False" RefireInterrupt="True" Description="16.5s" />
+                  <Action OrderNumber="16" NamedCallbackName="LatihasTUW" NamedCallbackParam="jzhA" TriggerId="0cd509ba-d3cd-4970-bcf0-c4613d36971e" TriggerForce="regexp" ActionType="NamedCallback" Asynchronous="False" />
+                </Actions>
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:tuw_state}" ExpressionTypeL="String" ExpressionR="家长会" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                </Condition>
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="ec4df6fe-1993-4c73-b6bd-cd4feb46ce65" Name="通用机制" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Name="热风" Id="baa02dd6-797a-4d97-863d-c6a9c9798999" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]+:2B5B:[^:]+:.{8}:(?&lt;RoleName&gt;[^:]+):">
+                <Actions>
+                  <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="rf:${RoleName}" ActionType="NamedCallback" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="吸附炸弹" Id="96683af8-d4c9-497d-9d2e-aaa312a55b06" RegularExpression="^.{14} StatusAdd 1A:5FC:[^:]+:(?&lt;time&gt;[^:]+):" PeriodRefire="Deny" RefirePeriodExpression="3000">
+                <Actions>
+                  <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="xfzd:${time}" ActionType="NamedCallback" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="究极，坦克LB3" Id="669c70a0-c106-4a1d-a367-893db803c71d" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]+:2B8B:">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="坦克LB3" UseTTSRateExpression="-5" ActionType="UseTTS" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="火神冲播报" Id="94de2961-723a-4261-ad09-bb6e4ddacb48" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]+:2B5F:" PeriodRefire="Deny" RefirePeriodExpression="200">
+                <Actions>
+                  <Action OrderNumber="1" SystemBeepFreqExpression="2000" UseTTSTextExpression="冲冲冲" ExecutionDelayExpression="1000" Asynchronous="False" />
+                  <Action OrderNumber="2" UseTTSTextExpression="冲冲冲" UseTTSRateExpression="1" ActionType="UseTTS" ExecutionDelayExpression="1000" Asynchronous="False" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="以太波动" Id="742884ab-e06e-4b19-94f6-e9b15e9282f7" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]+:2B88:">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="站位，坦克LB1" ActionType="UseTTS" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="爆雷刷新" Id="6988425b-4824-4eb7-ae94-d5a18ce6c870" RegularExpression="^.{14} AddCombatant 03:.{8}:.+:00::2138:8735">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="准备撞球" UseTTSRateExpression="1" ActionType="UseTTS" />
+                </Actions>
+                <Condition Enabled="false" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Name="魔导核爆" Id="13952aca-8889-4c69-b613-9bfb414e2ea8" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]+:2B87:">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="核爆减伤" UseTTSRateExpression="1" ActionType="UseTTS" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="觉醒" Id="7782e65a-6eae-452c-8d94-0658755c43a8" RegularExpression="^.{14} StatusAdd 1A:5F9:[^:]+:9999.00:E0000000::(?&lt;id&gt;.{8}):">
+                <Actions>
+                  <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="broadcast:已觉醒" ActionType="NamedCallback" />
+                  <Action OrderNumber="2" NamedCallbackName="LatihasTUW" NamedCallbackParam="p2hsjx:${id}" ActionType="NamedCallback" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="法系LB" Id="6c0c98c4-a424-475c-a17f-d0d822576f70" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]+:2B72:">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="法系LB" UseTTSRateExpression="-4" ActionType="UseTTS" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="奶妈LB" Id="03860827-5d19-4402-b75d-3314ee039ebd" RegularExpression="^.{14} StatusRemove 1E:30F:">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="奶妈LB" UseTTSRateExpression="-4" ActionType="UseTTS" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="近战LB" Id="88647f32-bd39-437a-bc88-2bf5ed5eb2c9" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]+:2B74:">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="近战LB" UseTTSRateExpression="-4" ActionType="UseTTS" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="诱导射线-二仇炮" Id="e0c31b9a-020e-4dce-a1a4-87958af950b5" RegularExpression="^.{14} StartsCasting 14:.{8}:[^:]+:2B7B:">
+                <Actions>
+                  <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="ydsx" UseTTSTextExpression="二仇炮" UseTTSRateExpression="1" ActionType="NamedCallback" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="死亡" Id="24927ad8-d304-4229-8390-1677551a90bc" RegularExpression="^.{14} Death 19:(?&lt;id&gt;40.{6}):">
+                <Actions>
+                  <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:${var:鲶鱼精邮差监听端口}/command" JsonPayloadExpression="/p 刺羽被打倒 承伤: ${var:刺羽_承伤}" NamedCallbackName="LatihasTUW" NamedCallbackParam="death:${id}" ActionType="NamedCallback" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="LB满" Id="ec99fec3-e540-4ec9-9135-8d12ffbc1999" RegularExpression="^.{14} LimitBreak 24:7530:3">
+                <Actions>
+                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="tuw_lb" VariableExpression="1" TriggerOp="CancelTrigger" TriggerId="33bc122a-3601-4634-892f-d4881aee1d8b" ActionType="Variable" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="火神冲特效显示" Id="51cfa84c-b45b-4948-938e-2963f0adf8f1" RegularExpression="^.{14} StartsCasting 14:(?&lt;id&gt;.{8}):[^:]+:2B5F:">
+                <Actions>
+                  <Action OrderNumber="1" NamedCallbackName="LatihasTUW" NamedCallbackParam="p2hscvfx:${_entity[${id}].address}" ActionType="NamedCallback" Asynchronous="False" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="爆发药监控" Id="0946af6a-8403-4bac-8473-a6d741e69318" RegularExpression="^.{14} StatusAdd 1A:31:[^:]+:[^:]+:.{8}:[^:]+:.{8}:(?&lt;id&gt;[^:]+):">
+                <Actions>
+                  <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e 爆发药:${id}" ActionType="NamedCallback" />
+                </Actions>
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="32a32e11-dd1d-4bec-b8ec-8159cde9ceac" Name="回调" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Name="回调解析TTS" Id="2988c3b6-5bc2-4a6a-8f13-79eb590e9561" RegularExpression="^\[Latihas TTS\] (?&lt;tts&gt;.+)$">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="${tts}" ActionType="UseTTS" />
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Name="回调字幕提示" Id="d13bc1a9-f88c-4be0-8e52-2a3d431d4062" RegularExpression="^\[Latihas Tip\] (?&lt;text&gt;[^:]+):(?&lt;offset_x&gt;[^:]+):(?&lt;offset_y&gt;[^:]+):(?&lt;id&gt;\S+)" PrevActions="Interrupt">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="${var:Souma_Team_Role}" TextAuraEffect="Bold" TextAuraFontSize="26.25" TextAuraForeground="White" TextAuraOutline="Fuchsia" TextAuraName="tuw_subtitle_${id}" TextAuraExpression="${text}" TextAuraXIniExpression="1413+${offset_x}" TextAuraYIniExpression="333+${offset_y}" TextAuraWIniExpression="400" TextAuraHIniExpression="200" TextAuraOIniExpression="100" TextAuraTTLTickExpression="5-${_since}" TextAuraFontName="微软雅黑" ActionType="TextAura">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${ecallback:warn}" ExpressionTypeL="String" ExpressionR="0" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="main" ExpressionTypeR="String" ConditionType="StringNotEqualCase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" NamedCallbackName="warn" NamedCallbackParam="2.5&#xD;&#xA;${text}" ActionType="NamedCallback">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${ecallback:warn}" ExpressionTypeL="String" ExpressionR="0" ExpressionTypeR="String" ConditionType="StringNotEqualCase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="main" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                    </Condition>
+                  </Action>
+                </Actions>
+              </Trigger>
+              <Trigger Enabled="true" Source="ACT" Name="回调注入" Id="e9f5d8f2-73c9-411c-a10b-eafc27241396" RegularExpression="">
+                <Actions>
+                  <Action OrderNumber="1" ExecScriptExpression="using System;&#xD;&#xA;using System.Collections.Generic;&#xD;&#xA;using System.Linq;&#xD;&#xA;using System.Numerics;&#xD;&#xA;using System.Text;&#xD;&#xA;using System.Threading.Tasks;&#xD;&#xA;using Triggernometry;&#xD;&#xA;using Triggernometry.PluginBridges;&#xD;&#xA;using static Triggernometry.Action.ActionTypeEnum;&#xD;&#xA;using static Triggernometry.Entity.RoleType;&#xD;&#xA;using static Triggernometry.Interpreter.StaticHelpers;&#xD;&#xA;using static Triggernometry.RealPlugin;&#xD;&#xA;using Action = Triggernometry.Action;&#xD;&#xA;&#xD;&#xA;plug.UnregisterNamedCallback(&quot;LatihasTUW&quot;);&#xD;&#xA;plug.RegisterNamedCallback(&quot;LatihasTUW&quot;, new Action&lt;object, string&gt;(LatihasTUW.Callback), null);&#xD;&#xA;&#xD;&#xA;public static class LatihasTUW {&#xD;&#xA;	private static string MyJob, MyName, hs, ttsafe, hsadd;&#xD;&#xA;	private static bool Ubroadcast, Uthreebucket;&#xD;&#xA;	private static Vector2 Zhuzi2;&#xD;&#xA;	private static Ciyu ciyu;&#xD;&#xA;	private static List&lt;DHP43&gt; p43dhDist = new();&#xD;&#xA;	private static int p43dhCount;&#xD;&#xA;	private static readonly Player[] Players = new Player[8];&#xD;&#xA;	private static readonly List&lt;string&gt; P43PlayerName = new();&#xD;&#xA;	private static readonly List&lt;Player&gt; Threebuckets = new();&#xD;&#xA;	private static readonly Trigger _tri = new();&#xD;&#xA;	private static readonly List&lt;Zhuzi&gt; Zhuzis = new();&#xD;&#xA;	private static readonly string[] JobOrder = { &quot;MT&quot;, &quot;ST&quot;, &quot;H1&quot;, &quot;H2&quot;, &quot;D1&quot;, &quot;D2&quot;, &quot;D3&quot;, &quot;D4&quot; },&#xD;&#xA;		TBJobOrder = { &quot;MT&quot;, &quot;ST&quot;, &quot;D1&quot;, &quot;D2&quot;, &quot;D3&quot;, &quot;D4&quot;, &quot;H1&quot;, &quot;H2&quot; },&#xD;&#xA;		Server = {&#xD;&#xA;			&quot;红玉海&quot;, &quot;神意之地&quot;, &quot;拉诺西亚&quot;, &quot;幻影群岛&quot;, &quot;萌芽池&quot;, &quot;宇宙和音&quot;, &quot;沃仙曦染&quot;, &quot;晨曦王座&quot;, &quot;白银乡&quot;, &quot;白金幻象&quot;, &quot;神拳痕&quot;, &quot;潮风亭&quot;, &quot;旅人栈桥&quot;, &quot;拂晓之间&quot;,&#xD;&#xA;			&quot;龙巢神殿&quot;, &quot;梦羽宝境&quot;, &quot;紫水栈桥&quot;, &quot;延夏&quot;, &quot;静语庄园&quot;, &quot;摩杜纳&quot;, &quot;海猫茶屋&quot;, &quot;柔风海湾&quot;, &quot;琥珀原&quot;, &quot;水晶塔&quot;, &quot;银泪湖&quot;, &quot;伊修加德&quot;, &quot;太阳海岸&quot;, &quot;红茶川&quot;, &quot;Anima&quot;,&#xD;&#xA;			&quot;Belias&quot;, &quot;Chocobo&quot;, &quot;Hades&quot;, &quot;Ixion&quot;, &quot;Mandragora&quot;, &quot;Masamune&quot;, &quot;Pandaemonium&quot;, &quot;Shinryu&quot;, &quot;Titan&quot;, &quot;Asura&quot;&#xD;&#xA;		};&#xD;&#xA;&#xD;&#xA;	private static void Place(string expr) {&#xD;&#xA;		try {&#xD;&#xA;			var sb = new StringBuilder(&quot;{&quot;);&#xD;&#xA;			foreach (var s in expr.Split(';')) {&#xD;&#xA;				var parts = s.Split(':');&#xD;&#xA;				var name = parts[0] switch {&#xD;&#xA;					&quot;1&quot; =&gt; &quot;One&quot;,&#xD;&#xA;					&quot;2&quot; =&gt; &quot;Two&quot;,&#xD;&#xA;					&quot;3&quot; =&gt; &quot;Three&quot;,&#xD;&#xA;					&quot;4&quot; =&gt; &quot;Four&quot;,&#xD;&#xA;					_ =&gt; parts[0]&#xD;&#xA;				};&#xD;&#xA;				if (parts[1] == &quot;clear&quot;)&#xD;&#xA;					sb.Append($&quot;\&quot;{name}\&quot;:{{}},&quot;);&#xD;&#xA;				else {&#xD;&#xA;					var xy = parts[1].Split(',');&#xD;&#xA;					sb.Append($&quot;\&quot;{name}\&quot;:{{\&quot;X\&quot;:{xy[0]},\&quot;Z\&quot;:{xy[1]},\&quot;Y\&quot;:0,\&quot;Active\&quot;:true}},&quot;);&#xD;&#xA;				}&#xD;&#xA;			}&#xD;&#xA;			plug.InvokeNamedCallback(&quot;place&quot;, sb.Append(&quot;}&quot;).ToString());&#xD;&#xA;		}&#xD;&#xA;		catch (Exception ex) {&#xD;&#xA;			Log($&quot;Place Error({expr}):{ex.StackTrace}&quot;);&#xD;&#xA;		}&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	public static void Callback(object _, string str) {&#xD;&#xA;		try {&#xD;&#xA;			var ss = str.Split(':');&#xD;&#xA;			switch (ss[0].ToLower()) {&#xD;&#xA;				case &quot;initplace&quot;: //v&#xD;&#xA;					Place(StaticPlace.initPlace);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;broadcast&quot;: //str&#xD;&#xA;					Broadcast(ss[1]);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;tts&quot;: //str&#xD;&#xA;					PostTTS(ss[1]);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;ydsx&quot;:&#xD;&#xA;					ydsx();&#xD;&#xA;					break;&#xD;&#xA;				case &quot;rf&quot;: //str:name&#xD;&#xA;					rf(ss[1]);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;xfzd&quot;: //time&#xD;&#xA;					xfzd(ss[1]);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;clear2&quot;: //time&#xD;&#xA;					Place(StaticPlace.clear2);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;death&quot;: //id&#xD;&#xA;					Death(ss[1]);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p0init&quot;: //str:job&#xD;&#xA;					if (str.Contains(&quot;:&quot;)) {&#xD;&#xA;						var tmp = ss[1].Split(',')[0].ToUpper();&#xD;&#xA;						if (JobOrder.All(j =&gt; j != tmp)) {&#xD;&#xA;							if (tmp == Tank.ToString().ToUpper()) MyJob = &quot;MT&quot;;&#xD;&#xA;							if (tmp == PureHealer.ToString().ToUpper()) MyJob = &quot;H1&quot;;&#xD;&#xA;							if (tmp == BarrierHealer.ToString().ToUpper()) MyJob = &quot;H2&quot;;&#xD;&#xA;							if (tmp == StrengthMelee.ToString().ToUpper()) MyJob = &quot;D1&quot;;&#xD;&#xA;							if (tmp == DexterityMelee.ToString().ToUpper()) MyJob = &quot;D2&quot;;&#xD;&#xA;							if (tmp == PhysicalRanged.ToString().ToUpper()) MyJob = &quot;D3&quot;;&#xD;&#xA;							if (tmp == MagicalRanged.ToString().ToUpper()) MyJob = &quot;D4&quot;;&#xD;&#xA;						}&#xD;&#xA;						else MyJob = tmp;&#xD;&#xA;						GetPartyOrderInit(ss[1]);&#xD;&#xA;					}&#xD;&#xA;					else if (MyJob != null) {&#xD;&#xA;						InitParams();&#xD;&#xA;						PostTip($&quot;已使用{MyJob}进行初始化&quot;);&#xD;&#xA;					}&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p1place&quot;: //void&#xD;&#xA;					Place(StaticPlace.initPlace);&#xD;&#xA;					Place(StaticPlace.clear2);&#xD;&#xA;					Place(StaticPlace.clear3);&#xD;&#xA;					Place(StaticPlace.clear4);&#xD;&#xA;					if (MyJob == null) PostTTS(&quot;未设置职业，请检查设置。&quot;);&#xD;&#xA;					if (Ubroadcast) Broadcast(&quot;已开启团队播报，请注意不要冲突&quot;);&#xD;&#xA;					if (Uthreebucket) Broadcast(&quot;已开启三桶播报，请注意不要冲突&quot;);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p1ciyu&quot;: //str&#xD;&#xA;					lock (ciyu) { ciyu.zid = ss[1]; }&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p1ciyudmg&quot;: //jid,desc&#xD;&#xA;					var sx = ss[1].Split(',');&#xD;&#xA;					if (sx[0] is &quot;2B45&quot; or &quot;2B46&quot;) break;&#xD;&#xA;					lock (ciyu) { ciyu.dmg.Add(sx[1]); }&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p1ciyucs&quot;: //void&#xD;&#xA;					lock (ciyu) { ciyu.cs2 = true; }&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p1fshp1&quot;: //void&#xD;&#xA;					p1fshp();&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p1fshp2&quot;: //void&#xD;&#xA;					p1fshp(false);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p1fs1&quot;: //void&#xD;&#xA;					var es = GetXYFromBnpcid(&quot;8723&quot;);&#xD;&#xA;					if (es.Count == 2) {&#xD;&#xA;						var fs1 = GetDir(es[0]);&#xD;&#xA;						var fs2 = GetDir(es[1]);&#xD;&#xA;						PostTTS($&quot;{fs1},{fs2}&quot;);&#xD;&#xA;						FsPlace(fs1, fs2);&#xD;&#xA;					}&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p1fs2&quot;: //void&#xD;&#xA;					const string fs3 = &quot;左西&quot;;&#xD;&#xA;					const string fs4 = &quot;右东&quot;;&#xD;&#xA;					PostTTS($&quot;{fs3},{fs4}&quot;);&#xD;&#xA;					FsPlace(fs3, fs4);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p2hs&quot;: //id,x,y&#xD;&#xA;					p2hs(ss[1]);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p2safe&quot;: //x,y&#xD;&#xA;					p2safe(ss[1]);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p2zhuzi&quot;: //id,x,y&#xD;&#xA;					p2zhuzi(ss[1]);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p2zhuzidmg&quot;: //jid,desc&#xD;&#xA;					p2zhuzidmg(ss[1]);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p2zhuzijx&quot;: //id&#xD;&#xA;					p2zhuzijx(ss[1]);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p2zhuzi23&quot;: //vois&#xD;&#xA;					p2zhuzi23();&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p2hsjx&quot;: //id&#xD;&#xA;					p2hsjx(ss[1]);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p2hscvfx&quot;: //id&#xD;&#xA;					p2hscvfx(ss[1]);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p3threebucket&quot;: //name&#xD;&#xA;					ThreeBucket(ss[1]);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p3fly&quot;: //id&#xD;&#xA;					p3fly(ss[1]);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p3ygjd&quot;: //x,y&#xD;&#xA;					p3ygjd(ss[1]);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p3nl&quot;: //id&#xD;&#xA;					p3nl(ss[1]);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p3lb&quot;:&#xD;&#xA;					p3lb();&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p41&quot;: //void&#xD;&#xA;					p41();&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p41taitan&quot;: //x&#xD;&#xA;					p41taitan(ss[1]);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p41place2&quot;: //void&#xD;&#xA;					Place(StaticPlace.p41place2);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p42hs&quot;: //void&#xD;&#xA;					p42hs();&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p42place2&quot;: //void&#xD;&#xA;					Place(StaticPlace.p42place2);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p42place4d3&quot;: //void&#xD;&#xA;					Place(StaticPlace.p42place4d3);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p42place2rf&quot;: //void&#xD;&#xA;					Place(StaticPlace.p42place2rf);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p43place&quot;: //void&#xD;&#xA;					Place(StaticPlace.startp43);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p43dh&quot;: //xy&#xD;&#xA;					p43dh(ss[1]);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p43fq&quot;: //name&#xD;&#xA;					p43dh_fq(ss[1], &quot;风枪&quot;);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;p43qdptrace&quot;: //xy&#xD;&#xA;					p43qdptrace(ss[1]);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;jzha&quot;: //void&#xD;&#xA;					Place(StaticPlace.p5jzhA);&#xD;&#xA;					Broadcast(&quot;A点&quot;, true);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;jzh2&quot;: //void&#xD;&#xA;					Place(StaticPlace.p5jzh2);&#xD;&#xA;					Broadcast(&quot;2点&quot;, true);&#xD;&#xA;					break;&#xD;&#xA;				case &quot;jzh3&quot;: //void&#xD;&#xA;					Place(StaticPlace.p5jzh3);&#xD;&#xA;					Broadcast(&quot;3点&quot;, true);&#xD;&#xA;					break;&#xD;&#xA;			}&#xD;&#xA;		}&#xD;&#xA;		catch (Exception e) {&#xD;&#xA;			Log($&quot;Error: {str}&quot;);&#xD;&#xA;			Log(e.StackTrace);&#xD;&#xA;		}&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void p2hscvfx(string address) {&#xD;&#xA;		try {&#xD;&#xA;			plug.InvokeNamedCallback(&quot;LockOn&quot;, address != hsadd ? $&quot;{address},omen_laser_6_40_4sec_0t&quot; : $&quot;{address},omen_laser_6_60_4sec_0t&quot;);&#xD;&#xA;			Task.Run(async delegate {&#xD;&#xA;				await Task.Delay(GetScale(&quot;state&quot;) == &quot;二运&quot; ? 1500 : 2500);&#xD;&#xA;				plug.InvokeNamedCallback(&quot;LockOn&quot;, $&quot;{address},0&quot;);&#xD;&#xA;			});&#xD;&#xA;		}&#xD;&#xA;		catch (Exception) {&#xD;&#xA;			// ignored&#xD;&#xA;		}&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void p2hsjx(string id) {&#xD;&#xA;		var e = BridgeFFXIV.GetIdEntity(id);&#xD;&#xA;		if (e.GetValue(&quot;bnpcid&quot;).ToString() == &quot;8730&quot;) hsadd = e.GetValue(&quot;address&quot;).ToString();&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void p3lb() {&#xD;&#xA;		BelowHP(&quot;8727&quot;, 0.15, &quot;请注意土神血量和LB槽&quot;, &quot;stop2&quot;);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void BelowHP(string bnpcid, double percent, string desc, string marktype) {&#xD;&#xA;		foreach (var en in BridgeFFXIV.GetAllEntities().Where(x =&gt; x.GetValue(&quot;bnpcid&quot;).ToString() == bnpcid)) {&#xD;&#xA;			if (!(1.0 * int.Parse(en.GetValue(&quot;currenthp&quot;).ToString()) / int.Parse(en.GetValue(&quot;maxhp&quot;).ToString()) &lt; percent)) return;&#xD;&#xA;			Broadcast(desc, true);&#xD;&#xA;			Mark(en.GetValue(&quot;id&quot;), marktype);&#xD;&#xA;			return;&#xD;&#xA;		}&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void Mark(object hexId, string marktype) {&#xD;&#xA;		if (Ubroadcast) plug.InvokeNamedCallback(&quot;mark&quot;, $&quot;{{\&quot;ActorID\&quot;:0x{hexId},\&quot;MarkType\&quot;:\&quot;{marktype}\&quot;}}&quot;);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void p1fshp(bool first = true) {&#xD;&#xA;		if (first) BelowHP(&quot;8722&quot;, 0.2, &quot;请注意风神血量&quot;, &quot;stop1&quot;);&#xD;&#xA;		else BelowHP(&quot;8722&quot;, 0.15, &quot;请注意风神血量&quot;, &quot;stop2&quot;);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void Death(string id) {&#xD;&#xA;		foreach (var z in Zhuzis.Where(z =&gt; z.zid == id &amp;&amp; !z.cs2)) {&#xD;&#xA;			Broadcast($&quot;柱炸:{string.Join(&quot;&quot;, z.dmg)}&quot;);&#xD;&#xA;			break;&#xD;&#xA;		}&#xD;&#xA;		lock (ciyu) {&#xD;&#xA;			if (id == ciyu.zid &amp;&amp; !ciyu.cs2) Broadcast($&quot;羽炸:{string.Join(&quot;&quot;, ciyu.dmg)}&quot;);&#xD;&#xA;		}&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void p43qdptrace(string xy) {&#xD;&#xA;		var pos = GetXY(xy);&#xD;&#xA;		Place($&quot;2:{pos.X},{pos.Y}&quot;);&#xD;&#xA;		if (pos is { X: &gt; 100, Y: &gt; 100 }) Broadcast(&quot;警告，潜地炮位置出现在右下&quot;);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void xfzd(string time) {&#xD;&#xA;		Task.Run(async delegate {&#xD;&#xA;			await Task.Delay(((int)float.Parse(time) - 3) * 1000);&#xD;&#xA;			PostTTS(&quot;准备爆炸&quot;);&#xD;&#xA;		});&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void p3nl(string id) {&#xD;&#xA;		Broadcast(&quot;优先攻击石牢&quot;);&#xD;&#xA;		Mark(id, &quot;attack1&quot;);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void rf(string name) {&#xD;&#xA;		bool H1Dead = false, H2Dead = false;&#xD;&#xA;		foreach (var p in Players) {&#xD;&#xA;			if (BridgeFFXIV.GetNamedPartyMember(p.name).GetValue(&quot;currenthp&quot;).ToString() == &quot;0&quot; &amp;&amp; p.job == &quot;H1&quot;)&#xD;&#xA;				H1Dead = true;&#xD;&#xA;			if (BridgeFFXIV.GetNamedPartyMember(p.name).GetValue(&quot;currenthp&quot;).ToString() == &quot;0&quot; &amp;&amp; p.job == &quot;H2&quot;)&#xD;&#xA;				H2Dead = true;&#xD;&#xA;			if (p.name != name || MyName != name) continue;&#xD;&#xA;			PostTip(&quot;热风点你，快出去！&quot;);&#xD;&#xA;		}&#xD;&#xA;		if (H1Dead || H2Dead) Broadcast(&quot;奶死亡，热风注意出人群&quot;, true);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void ydsx() {&#xD;&#xA;		bool StDead = false, MtDead = false;&#xD;&#xA;		foreach (var p in Players) {&#xD;&#xA;			if (BridgeFFXIV.GetNamedPartyMember(p.name).GetValue(&quot;currenthp&quot;).ToString() == &quot;0&quot; &amp;&amp; p.job == &quot;ST&quot;)&#xD;&#xA;				StDead = true;&#xD;&#xA;			if (BridgeFFXIV.GetNamedPartyMember(p.name).GetValue(&quot;currenthp&quot;).ToString() == &quot;0&quot; &amp;&amp; p.job == &quot;MT&quot;)&#xD;&#xA;				MtDead = true;&#xD;&#xA;		}&#xD;&#xA;		var op = &quot;二仇炮。&quot;;&#xD;&#xA;		if (MtDead || StDead) {&#xD;&#xA;			op += &quot;T死亡，二仇注意出人群&quot;;&#xD;&#xA;			Broadcast(op, true);&#xD;&#xA;		}&#xD;&#xA;		PostTTS(op);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void p42hs() {&#xD;&#xA;		var yflt = GetXYFromBnpcid(&quot;8730&quot;, 1)[0];&#xD;&#xA;		var dir = GetDir(yflt);&#xD;&#xA;		if (dir is &quot;左上西北&quot; or &quot;右下东南&quot;) Place(&quot;4:112,112&quot;);&#xD;&#xA;		if (dir is &quot;左下西南&quot; or &quot;右上东北&quot;) Place(&quot;4:88,112&quot;);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void p41() {&#xD;&#xA;		var jll = GetXYFromBnpcid(&quot;8722&quot;, 1)[0];&#xD;&#xA;		var tt = GetXYFromBnpcid(&quot;8727&quot;, 1)[0];&#xD;&#xA;		var yflt = GetXYFromBnpcid(&quot;8730&quot;, 1)[0];&#xD;&#xA;		var yflt_dir = GetDir(yflt);&#xD;&#xA;		var jjsb = GetXYFromBnpcid(&quot;8734&quot;)[0];&#xD;&#xA;		var jjsb_dir = GetDir(jjsb);&#xD;&#xA;		var tt_dir = GetDir(tt);&#xD;&#xA;		var result = new List&lt;P41Info&gt;();&#xD;&#xA;		foreach (var s in new[] { &quot;上北&quot;, &quot;下南&quot;, &quot;左西&quot;, &quot;右东&quot; }) {&#xD;&#xA;			if (jll.X &gt; 100 &amp;&amp; s == &quot;右东&quot; || jll.X &lt; 100 &amp;&amp; s == &quot;左西&quot; ||&#xD;&#xA;				jll.Y &gt; 100 &amp;&amp; s == &quot;下南&quot; || jll.Y &lt; 100 &amp;&amp; s == &quot;上北&quot; ||&#xD;&#xA;				s == tt_dir) continue;&#xD;&#xA;			switch (s) {&#xD;&#xA;				case &quot;上北&quot;:&#xD;&#xA;					if (jjsb_dir != &quot;左上西北&quot;)&#xD;&#xA;						result.Add(new P41Info(s, &quot;上北然后逆时针&quot;, new Vector2(91, 83),&#xD;&#xA;							yflt_dir != &quot;左上西北&quot; &amp;&amp; yflt_dir != &quot;右下东南&quot;));&#xD;&#xA;					if (jjsb_dir != &quot;右上东北&quot;)&#xD;&#xA;						result.Add(new P41Info(s, &quot;上北然后顺时针&quot;, new Vector2(109, 83),&#xD;&#xA;							yflt_dir != &quot;右上东北&quot; &amp;&amp; yflt_dir != &quot;左下西南&quot;));&#xD;&#xA;					break;&#xD;&#xA;				case &quot;下南&quot;:&#xD;&#xA;					if (jjsb_dir != &quot;左下西南&quot;)&#xD;&#xA;						result.Add(new P41Info(s, &quot;下南然后顺时针&quot;, new Vector2(91, 117),&#xD;&#xA;							yflt_dir != &quot;右上东北&quot; &amp;&amp; yflt_dir != &quot;左下西南&quot;));&#xD;&#xA;					if (jjsb_dir != &quot;右下东南&quot;)&#xD;&#xA;						result.Add(new P41Info(s, &quot;下南然后逆时针&quot;, new Vector2(109, 117),&#xD;&#xA;							yflt_dir != &quot;左上西北&quot; &amp;&amp; yflt_dir != &quot;右下东南&quot;));&#xD;&#xA;					break;&#xD;&#xA;				case &quot;左西&quot;:&#xD;&#xA;					if (jjsb_dir != &quot;左上西北&quot;)&#xD;&#xA;						result.Add(new P41Info(s, &quot;左西然后顺时针&quot;, new Vector2(83, 91),&#xD;&#xA;							yflt_dir != &quot;左上西北&quot; &amp;&amp; yflt_dir != &quot;右下东南&quot;));&#xD;&#xA;					if (jjsb_dir != &quot;左下西南&quot;)&#xD;&#xA;						result.Add(new P41Info(s, &quot;左西然后逆时针&quot;, new Vector2(83, 109),&#xD;&#xA;							yflt_dir != &quot;右上东北&quot; &amp;&amp; yflt_dir != &quot;左下西南&quot;));&#xD;&#xA;					break;&#xD;&#xA;				case &quot;右东&quot;:&#xD;&#xA;					if (jjsb_dir != &quot;右上东北&quot;)&#xD;&#xA;						result.Add(new P41Info(s, &quot;右东然后逆时针&quot;, new Vector2(117, 91),&#xD;&#xA;							yflt_dir != &quot;右上东北&quot; &amp;&amp; yflt_dir != &quot;左下西南&quot;));&#xD;&#xA;					if (jjsb_dir != &quot;右下东南&quot;)&#xD;&#xA;						result.Add(new P41Info(s, &quot;右东然后顺时针&quot;, new Vector2(117, 109),&#xD;&#xA;							yflt_dir != &quot;左上西北&quot; &amp;&amp; yflt_dir != &quot;右下东南&quot;));&#xD;&#xA;					break;&#xD;&#xA;			}&#xD;&#xA;		}&#xD;&#xA;		var esresult = result.Where(t =&gt; t.canES).ToList();&#xD;&#xA;		esresult.AddRange(result.Where(t =&gt; !t.canES));&#xD;&#xA;		var recommand = esresult[0];&#xD;&#xA;		PostTip(recommand.desc);&#xD;&#xA;		Place(recommand.first switch {&#xD;&#xA;			&quot;上北&quot; =&gt; StaticPlace.safeA,&#xD;&#xA;			&quot;下南&quot; =&gt; StaticPlace.safeC,&#xD;&#xA;			&quot;左西&quot; =&gt; StaticPlace.safeD,&#xD;&#xA;			&quot;右东&quot; =&gt; StaticPlace.safeB&#xD;&#xA;		});&#xD;&#xA;		Log($&quot;可能安全点:{string.Join(&quot;|&quot;, esresult)}。神兵:{jjsb_dir},土神:{tt_dir},火神:{yflt_dir}。&quot;);&#xD;&#xA;		Task.Run(async delegate {&#xD;&#xA;			await Task.Delay(recommand.canES ? 1000 : 6000);&#xD;&#xA;			Place($&quot;4:{recommand.after.X},{recommand.after.Y}&quot;);&#xD;&#xA;		});&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void p43dh_fq(string s, string desc) {&#xD;&#xA;		if (s == MyName) PostTip(desc);&#xD;&#xA;		else if (desc == &quot;地火&quot;) desc += &quot;(仅供参考)&quot;;&#xD;&#xA;		lock (P43PlayerName) {&#xD;&#xA;			P43PlayerName.Add(s);&#xD;&#xA;			Broadcast($&quot;{desc} {s}&quot;);&#xD;&#xA;			if (P43PlayerName.Count == 5) p43qdp();&#xD;&#xA;		}&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void p43qdp() {&#xD;&#xA;		var nm = &quot;&quot;;&#xD;&#xA;		foreach (var player in Players) {&#xD;&#xA;			var pn = player.name;&#xD;&#xA;			if (player.job is &quot;MT&quot; or &quot;ST&quot; || P43PlayerName.Contains(pn)) continue;&#xD;&#xA;			if (nm == &quot;&quot;) nm = pn;&#xD;&#xA;			else return;&#xD;&#xA;		}&#xD;&#xA;		if (nm == MyName) PostTip(&quot;潜地炮&quot;);&#xD;&#xA;		Broadcast($&quot;潜地炮 {nm}&quot;);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void p43dh(string xy) {&#xD;&#xA;		var pos = GetXY(xy);&#xD;&#xA;		lock (p43dhDist) {&#xD;&#xA;			var iter = 0;&#xD;&#xA;			foreach (var player in Players) {&#xD;&#xA;				if (player.job is &quot;ST&quot; or &quot;MT&quot;) continue;&#xD;&#xA;				var pn = player.name;&#xD;&#xA;				var pl = BridgeFFXIV.GetNamedPartyMember(pn);&#xD;&#xA;				var dist = Vector2.DistanceSquared(pos,&#xD;&#xA;					new Vector2(float.Parse(pl.GetValue(&quot;x&quot;).ToString()),&#xD;&#xA;						float.Parse(pl.GetValue(&quot;y&quot;).ToString())));&#xD;&#xA;				if (p43dhCount == 0) p43dhDist.Add(new DHP43(pn, dist));&#xD;&#xA;				else {&#xD;&#xA;					p43dhDist[iter].dist = Math.Min(p43dhDist[iter].dist, dist);&#xD;&#xA;					iter++;&#xD;&#xA;				}&#xD;&#xA;			}&#xD;&#xA;			if (++p43dhCount != 3) return;&#xD;&#xA;			p43dhDist.Sort((a, b) =&gt; a.dist.CompareTo(b.dist));&#xD;&#xA;			p43dh_fq(p43dhDist[0].name, &quot;地火&quot;);&#xD;&#xA;			p43dh_fq(p43dhDist[1].name, &quot;地火&quot;);&#xD;&#xA;			p43dh_fq(p43dhDist[2].name, &quot;地火&quot;);&#xD;&#xA;		}&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void p41taitan(string x) {&#xD;&#xA;		var dir = x switch {&#xD;&#xA;			&quot;113.70&quot; =&gt; &quot;右右右&quot;,&#xD;&#xA;			&quot;86.30&quot; =&gt; &quot;左左左&quot;&#xD;&#xA;		};&#xD;&#xA;		PostTip(dir);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void p2zhuzijx(string s) {&#xD;&#xA;		lock (Zhuzis) {&#xD;&#xA;			foreach (var z in Zhuzis.Where(z =&gt; z.zid == s)) {&#xD;&#xA;				z.cs2 = true;&#xD;&#xA;				break;&#xD;&#xA;			}&#xD;&#xA;		}&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;	private static void p2zhuzidmg(string st) {&#xD;&#xA;		var ss = st.Split(',');&#xD;&#xA;		if (ss[0] == &quot;2B58&quot;) return;&#xD;&#xA;		lock (Zhuzis) {&#xD;&#xA;			foreach (var z in Zhuzis.Where(z =&gt; z.zid == ss[2])) {&#xD;&#xA;				z.dmg.Add(ss[1]);&#xD;&#xA;				break;&#xD;&#xA;			}&#xD;&#xA;		}&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void p2zhuzi23() {&#xD;&#xA;		if (Zhuzi2.X is 84 or 93) Zhuzi2.X = 88;&#xD;&#xA;		if (Zhuzi2.X is 107 or 116) Zhuzi2.X = 112;&#xD;&#xA;		if (Zhuzi2.Y is 84 or 93) Zhuzi2.Y = 88;&#xD;&#xA;		if (Zhuzi2.Y is 107 or 116) Zhuzi2.Y = 112;&#xD;&#xA;		Place($&quot;2:{Zhuzi2.X},{Zhuzi2.Y};3:{200 - Zhuzi2.X},{200 - Zhuzi2.Y}&quot;);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void p2zhuzimark(int a1, int a2, int a3, int a4) {&#xD;&#xA;		Mark(Zhuzis[a1].zid, &quot;attack1&quot;);&#xD;&#xA;		Mark(Zhuzis[a2].zid, &quot;attack2&quot;);&#xD;&#xA;		Mark(Zhuzis[a3].zid, &quot;attack3&quot;);&#xD;&#xA;		Mark(Zhuzis[a4].zid, &quot;attack4&quot;);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void p2zhuzi(string dxy) {&#xD;&#xA;		var ss = dxy.Split(',');&#xD;&#xA;		var d = ss[0];&#xD;&#xA;		var x = ss[1];&#xD;&#xA;		var y = ss[2];&#xD;&#xA;		lock (Zhuzis) {&#xD;&#xA;			if (x == &quot;100.00&quot; &amp;&amp; y == &quot;90.00&quot;) Zhuzis.Add(new Zhuzi(d, 1 &lt;&lt; 7));&#xD;&#xA;			else if (x == &quot;107.00&quot; &amp;&amp; y == &quot;93.00&quot;) Zhuzis.Add(new Zhuzi(d, 1 &lt;&lt; 6));&#xD;&#xA;			else if (x == &quot;110.00&quot; &amp;&amp; y == &quot;100.00&quot;) Zhuzis.Add(new Zhuzi(d, 1 &lt;&lt; 5));&#xD;&#xA;			else if (x == &quot;107.00&quot; &amp;&amp; y == &quot;107.00&quot;) Zhuzis.Add(new Zhuzi(d, 1 &lt;&lt; 4));&#xD;&#xA;			else if (x == &quot;100.00&quot; &amp;&amp; y == &quot;110.00&quot;) Zhuzis.Add(new Zhuzi(d, 1 &lt;&lt; 3));&#xD;&#xA;			else if (x == &quot;93.00&quot; &amp;&amp; y is &quot;107.00&quot; or &quot;106.95&quot; or &quot;107&quot;) Zhuzis.Add(new Zhuzi(d, 1 &lt;&lt; 2));&#xD;&#xA;			else if (x == &quot;90.00&quot; &amp;&amp; y == &quot;100.00&quot;) Zhuzis.Add(new Zhuzi(d, 1 &lt;&lt; 1));&#xD;&#xA;			else if (x == &quot;93.00&quot; &amp;&amp; y == &quot;93.00&quot;) Zhuzis.Add(new Zhuzi(d, 1));&#xD;&#xA;			else Log($&quot;Error: Zhuzi {dxy}.&quot;);&#xD;&#xA;&#xD;&#xA;			if (Zhuzis.Count != 4) return;&#xD;&#xA;			Zhuzis.Sort((a, b) =&gt; a.pos.CompareTo(b.pos));&#xD;&#xA;			switch (Zhuzis.Aggregate(0, (current, z) =&gt; current | z.pos)) {&#xD;&#xA;				case 0b11010010:&#xD;&#xA;					Zhuzi2 = new Vector2(93, 116);&#xD;&#xA;					p2zhuzimark(1, 0, 2, 3);&#xD;&#xA;					break;&#xD;&#xA;				case 0b01101001:&#xD;&#xA;					Zhuzi2 = new Vector2(84, 107);&#xD;&#xA;					p2zhuzimark(1, 0, 2, 3);&#xD;&#xA;					break;&#xD;&#xA;				case 0b10110100:&#xD;&#xA;					Zhuzi2 = new Vector2(84, 93);&#xD;&#xA;					p2zhuzimark(0, 3, 1, 2);&#xD;&#xA;					break;&#xD;&#xA;				case 0b01011010:&#xD;&#xA;					Zhuzi2 = new Vector2(93, 84);&#xD;&#xA;					p2zhuzimark(0, 3, 1, 2);&#xD;&#xA;					break;&#xD;&#xA;				case 0b00101101:&#xD;&#xA;					Zhuzi2 = new Vector2(107, 84);&#xD;&#xA;					p2zhuzimark(0, 3, 1, 2);&#xD;&#xA;					break;&#xD;&#xA;				case 0b10010110:&#xD;&#xA;					Zhuzi2 = new Vector2(116, 93);&#xD;&#xA;					p2zhuzimark(3, 2, 0, 1);&#xD;&#xA;					break;&#xD;&#xA;				case 0b01001011:&#xD;&#xA;					Zhuzi2 = new Vector2(116, 107);&#xD;&#xA;					p2zhuzimark(3, 2, 0, 1);&#xD;&#xA;					break;&#xD;&#xA;				case 0b10100101:&#xD;&#xA;					Zhuzi2 = new Vector2(107, 116);&#xD;&#xA;					p2zhuzimark(2, 1, 3, 0);&#xD;&#xA;					break;&#xD;&#xA;			}&#xD;&#xA;			Place($&quot;2:{Zhuzi2.X},{Zhuzi2.Y}&quot;);&#xD;&#xA;		}&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void p3ygjd(string xy) {&#xD;&#xA;		var ss = xy.Split(',');&#xD;&#xA;		var x = ss[0];&#xD;&#xA;		var y = ss[1];&#xD;&#xA;		var ygjddir = &quot;&quot;;&#xD;&#xA;		if (x == &quot;95.00&quot; &amp;&amp; y is &quot;111.00&quot; or &quot;112.00&quot; ||&#xD;&#xA;			x == &quot;88.00&quot; &amp;&amp; y == &quot;95.00&quot; ||&#xD;&#xA;			x == &quot;105.00&quot; &amp;&amp; y == &quot;88.00&quot; ||&#xD;&#xA;			x == &quot;112.00&quot; &amp;&amp; y == &quot;105.00&quot;) ygjddir = &quot;右右右&quot;;&#xD;&#xA;		if (x == &quot;105.00&quot; &amp;&amp; y == &quot;112.00&quot; ||&#xD;&#xA;			x == &quot;88.00&quot; &amp;&amp; y == &quot;105.00&quot; ||&#xD;&#xA;			x == &quot;95.00&quot; &amp;&amp; y == &quot;88.00&quot; ||&#xD;&#xA;			x is &quot;111.00&quot; or &quot;112.00&quot; &amp;&amp; y == &quot;95.00&quot;) ygjddir = &quot;左左左&quot;;&#xD;&#xA;		if (ygjddir == &quot;&quot;) return;&#xD;&#xA;		if (x == &quot;95.00&quot; &amp;&amp; y is &quot;111.00&quot; or &quot;112.00&quot; || x is &quot;111.00&quot; or &quot;112.00&quot; &amp;&amp; y == &quot;95.00&quot;)&#xD;&#xA;			Place(&quot;2:105,105&quot;);&#xD;&#xA;		if (x == &quot;105.00&quot; &amp;&amp; y == &quot;112.00&quot; || x == &quot;88.00&quot; &amp;&amp; y == &quot;95.00&quot;)&#xD;&#xA;			Place(&quot;2:95,105&quot;);&#xD;&#xA;		if (x == &quot;105.00&quot; &amp;&amp; y == &quot;88.00&quot; || x == &quot;88.00&quot; &amp;&amp; y == &quot;105.00&quot;)&#xD;&#xA;			Place(&quot;2:95,95&quot;);&#xD;&#xA;		if (x == &quot;95.00&quot; &amp;&amp; y == &quot;88.00&quot; || x == &quot;112.00&quot; &amp;&amp; y == &quot;105.00&quot;)&#xD;&#xA;			Place(&quot;2:105,95&quot;);&#xD;&#xA;		var index = -1;&#xD;&#xA;		switch (ttsafe) {&#xD;&#xA;			case &quot;AAAA&quot;:&#xD;&#xA;				Place(&quot;3:100,105&quot;);&#xD;&#xA;				index = 0;&#xD;&#xA;				break;&#xD;&#xA;			case &quot;BBBB&quot;:&#xD;&#xA;				Place(&quot;3:95,100&quot;);&#xD;&#xA;				index = 1;&#xD;&#xA;				break;&#xD;&#xA;			case &quot;CCCC&quot;:&#xD;&#xA;				Place(&quot;3:100,95&quot;);&#xD;&#xA;				index = 2;&#xD;&#xA;				break;&#xD;&#xA;			case &quot;DDDD&quot;:&#xD;&#xA;				Place(&quot;3:105,100&quot;);&#xD;&#xA;				index = 3;&#xD;&#xA;				break;&#xD;&#xA;		}&#xD;&#xA;		Place(StaticPlace.ygjdPlace4[index, ygjddir == &quot;左左左&quot; ? 0 : 1]);&#xD;&#xA;		PostTip(ygjddir);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void Broadcast(string s, bool tip = false) {&#xD;&#xA;		if (tip) PostTip(s, tts: false);&#xD;&#xA;		plug.InvokeNamedCallback(&quot;command&quot;, Ubroadcast ? $&quot;/p {s} &lt;se.1&gt;&quot; : $&quot;/e {s}&quot;);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static string GetPScale(string name) {&#xD;&#xA;		return GetScalarVariable(false, &quot;ptuw_&quot; + name);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static string GetScale(string name) {&#xD;&#xA;		return GetScalarVariable(false, &quot;tuw_&quot; + name);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void p3fly(string id) {&#xD;&#xA;		var pos = GetXY(id);&#xD;&#xA;		ttsafe = &quot;&quot;;&#xD;&#xA;		if (Math.Abs(pos.X - 100) &lt;= 2 &amp;&amp; Math.Abs(pos.Y - 114) &lt;= 2) {&#xD;&#xA;			ttsafe = &quot;AAAA&quot;;&#xD;&#xA;			Place(StaticPlace.safeA);&#xD;&#xA;		}&#xD;&#xA;		if (Math.Abs(pos.X - 86) &lt;= 2 &amp;&amp; Math.Abs(pos.Y - 100) &lt;= 2) {&#xD;&#xA;			ttsafe = &quot;BBBB&quot;;&#xD;&#xA;			Place(StaticPlace.safeB);&#xD;&#xA;		}&#xD;&#xA;		if (Math.Abs(pos.X - 100) &lt;= 2 &amp;&amp; Math.Abs(pos.Y - 86) &lt;= 2) {&#xD;&#xA;			ttsafe = &quot;CCCC&quot;;&#xD;&#xA;			Place(StaticPlace.safeC);&#xD;&#xA;		}&#xD;&#xA;		if (Math.Abs(pos.X - 114) &lt;= 2 &amp;&amp; Math.Abs(pos.Y - 100) &lt;= 2) {&#xD;&#xA;			ttsafe = &quot;DDDD&quot;;&#xD;&#xA;			Place(StaticPlace.safeD);&#xD;&#xA;		}&#xD;&#xA;		if (ttsafe == &quot;&quot;) Log($&quot;Taitan Loc Fail At:({pos.X},{pos.Y})&quot;);&#xD;&#xA;		Broadcast(ttsafe, true);&#xD;&#xA;		PostTTS(ttsafe);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void PostTTS(string text) {&#xD;&#xA;		plug.QueueAction(fakectx, _tri, null,&#xD;&#xA;			new Action {&#xD;&#xA;				ActionType = LogMessage.ToString(),&#xD;&#xA;				LogMessageText = $&quot;[Latihas TTS] {text}&quot;,&#xD;&#xA;				LogProcess = &quot;true&quot;&#xD;&#xA;			}, DateTime.Now, true);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void PostTip(string text, float x = 0, float y = 0, string id = &quot;main&quot;, bool tts = true) {&#xD;&#xA;		plug.QueueAction(fakectx, _tri, null,&#xD;&#xA;			new Action {&#xD;&#xA;				ActionType = LogMessage.ToString(),&#xD;&#xA;				LogMessageText = $&quot;[Latihas Tip] {text}:{x}:{y}:{id}&quot;,&#xD;&#xA;				LogProcess = &quot;true&quot;&#xD;&#xA;			}, DateTime.Now, true);&#xD;&#xA;		if (tts) PostTTS(text);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void p2safe(string xy) {&#xD;&#xA;		if (hs == &quot;&quot;) return;&#xD;&#xA;		var zzpos = GetXY(xy);&#xD;&#xA;		string safe = null;&#xD;&#xA;		if (Math.Abs(zzpos.X - 100) &lt; 1 &amp;&amp; zzpos.Y &lt; 85 &amp;&amp; hs != &quot;上北&quot; &amp;&amp; hs != &quot;下南&quot;) safe = &quot;下南&quot;;&#xD;&#xA;		if (Math.Abs(zzpos.X - 100) &lt; 1 &amp;&amp; zzpos.Y &gt; 115 &amp;&amp; hs != &quot;上北&quot; &amp;&amp; hs != &quot;下南&quot;) safe = &quot;上北&quot;;&#xD;&#xA;		if (Math.Abs(zzpos.Y - 100) &lt; 1 &amp;&amp; zzpos.X &lt; 85 &amp;&amp; hs != &quot;左西&quot; &amp;&amp; hs != &quot;右东&quot;) safe = &quot;右东&quot;;&#xD;&#xA;		if (Math.Abs(zzpos.Y - 100) &lt; 1 &amp;&amp; zzpos.X &gt; 115 &amp;&amp; hs != &quot;左西&quot; &amp;&amp; hs != &quot;右东&quot;) safe = &quot;左西&quot;;&#xD;&#xA;		if (safe is null) return;&#xD;&#xA;		Place(safe switch {&#xD;&#xA;			&quot;上北&quot; =&gt; StaticPlace.safeA,&#xD;&#xA;			&quot;下南&quot; =&gt; StaticPlace.safeC,&#xD;&#xA;			&quot;左西&quot; =&gt; StaticPlace.safeD,&#xD;&#xA;			&quot;右东&quot; =&gt; StaticPlace.safeB&#xD;&#xA;		});&#xD;&#xA;		safe += &quot;安全&quot;;&#xD;&#xA;		PostTip(safe);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void p2hs(string xy) {&#xD;&#xA;		var ss = xy.Split(',');&#xD;&#xA;		var id = ss[0];&#xD;&#xA;		if (BridgeFFXIV.GetIdEntity(id).GetValue(&quot;bnpcid&quot;).ToString() != &quot;8730&quot;) return;&#xD;&#xA;		hs = GetDir(ss[1], ss[2]);&#xD;&#xA;		if (hs is &quot;上北&quot; or &quot;下南&quot;) Place(StaticPlace.p2hsWEsafe);&#xD;&#xA;		if (hs is &quot;左西&quot; or &quot;右东&quot;) Place(StaticPlace.p2hsNSsafe);&#xD;&#xA;		Place(StaticPlace.clear4);&#xD;&#xA;		PostTip(&quot;火神&quot; + hs, 50, 50, &quot;main2&quot;);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;	private static void FsPlace(string pl1, string pl2) {&#xD;&#xA;		Place(pl1 switch {&#xD;&#xA;			&quot;上北&quot; =&gt; StaticPlace.p1fsN3,&#xD;&#xA;			&quot;下南&quot; =&gt; StaticPlace.p1fsS3,&#xD;&#xA;			&quot;左西&quot; =&gt; StaticPlace.p1fsW3,&#xD;&#xA;			&quot;右东&quot; =&gt; StaticPlace.p1fsE3&#xD;&#xA;		});&#xD;&#xA;		Place(pl2 switch {&#xD;&#xA;			&quot;上北&quot; =&gt; StaticPlace.p1fsN4,&#xD;&#xA;			&quot;下南&quot; =&gt; StaticPlace.p1fsS4,&#xD;&#xA;			&quot;左西&quot; =&gt; StaticPlace.p1fsW4,&#xD;&#xA;			&quot;右东&quot; =&gt; StaticPlace.p1fsE4&#xD;&#xA;		});&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static string GetDir(Vector2 v) {&#xD;&#xA;		return GetDir(v.X, v.Y);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static string GetDir(string x, string y) {&#xD;&#xA;		return GetDir(float.Parse(x), float.Parse(y));&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static string GetDir(float x, float y) {&#xD;&#xA;		return x switch {&#xD;&#xA;			&gt; 110 when y &gt; 110 =&gt; &quot;右下东南&quot;,&#xD;&#xA;			&gt; 110 when y &lt; 90 =&gt; &quot;右上东北&quot;,&#xD;&#xA;			&lt; 90 when y &lt; 90 =&gt; &quot;左上西北&quot;,&#xD;&#xA;			&lt; 90 when y &gt; 110 =&gt; &quot;左下西南&quot;,&#xD;&#xA;			&gt; 115 =&gt; &quot;右东&quot;,&#xD;&#xA;			&lt; 85 =&gt; &quot;左西&quot;,&#xD;&#xA;			_ =&gt; y switch {&#xD;&#xA;				&lt; 85 =&gt; &quot;上北&quot;,&#xD;&#xA;				&gt; 115 =&gt; &quot;下南&quot;,&#xD;&#xA;				_ =&gt; &quot;&quot;&#xD;&#xA;			}&#xD;&#xA;		};&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static List&lt;Vector2&gt; GetXYFromBnpcid(string arg, int reqHP = -1) {&#xD;&#xA;		return arg.Any(c =&gt; c is (&lt; '0' or &gt; '9') and (&lt; 'A' or &gt; 'F') and (&lt; 'a' or &gt; 'f'))&#xD;&#xA;			? null&#xD;&#xA;			: (from en in BridgeFFXIV.GetAllEntities().Where(en =&gt; en.GetValue(&quot;bnpcid&quot;).ToString() == arg)&#xD;&#xA;			where reqHP == -1 || int.Parse(en.GetValue(&quot;currenthp&quot;).ToString()) == reqHP&#xD;&#xA;			select new Vector2(float.Parse(en.GetValue(&quot;x&quot;).ToString()), float.Parse(en.GetValue(&quot;y&quot;).ToString()))).ToList();&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static Vector2 GetXY(string id_xy) {&#xD;&#xA;		if (id_xy.Contains(&quot;,&quot;)) {&#xD;&#xA;			var ss = id_xy.Split(',');&#xD;&#xA;			return new Vector2(float.Parse(ss[0]), float.Parse(ss[1]));&#xD;&#xA;		}&#xD;&#xA;		if (id_xy.Any(c =&gt; c is (&lt; '0' or &gt; '9') and (&lt; 'A' or &gt; 'F') and (&lt; 'a' or &gt; 'f'))) return new Vector2();&#xD;&#xA;		var e = BridgeFFXIV.GetIdEntity(id_xy);&#xD;&#xA;		return new Vector2(float.Parse(e.GetValue(&quot;x&quot;).ToString()), float.Parse(e.GetValue(&quot;y&quot;).ToString()));&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void ThreeBucket(string args) {&#xD;&#xA;		foreach (var v in Players) {&#xD;&#xA;			if (args != v.name) continue;&#xD;&#xA;			lock (Threebuckets) {&#xD;&#xA;				switch (Threebuckets.Count) {&#xD;&#xA;					case 0:&#xD;&#xA;						Threebuckets.Add(v);&#xD;&#xA;						break;&#xD;&#xA;					case 1:&#xD;&#xA;						if (Threebuckets[0].storder &gt; v.storder) Threebuckets.Insert(0, v);&#xD;&#xA;						else Threebuckets.Add(v);&#xD;&#xA;						break;&#xD;&#xA;					case 2:&#xD;&#xA;						if (Threebuckets[0].storder &gt; v.storder) Threebuckets.Insert(0, v);&#xD;&#xA;						else if (Threebuckets[1].storder &gt; v.storder) Threebuckets.Insert(1, v);&#xD;&#xA;						else Threebuckets.Add(v);&#xD;&#xA;						if (Uthreebucket) {&#xD;&#xA;							plug.InvokeNamedCallback(&quot;command&quot;, $&quot;/mk attack1 &lt;{Threebuckets[0].partyorder}&gt;&quot;);&#xD;&#xA;							plug.InvokeNamedCallback(&quot;command&quot;, $&quot;/mk attack2 &lt;{Threebuckets[1].partyorder}&gt;&quot;);&#xD;&#xA;							plug.InvokeNamedCallback(&quot;command&quot;, $&quot;/mk attack3 &lt;{Threebuckets[2].partyorder}&gt;&quot;);&#xD;&#xA;							Task.Run(async delegate {&#xD;&#xA;								await Task.Delay(9000);&#xD;&#xA;								plug.InvokeNamedCallback(&quot;command&quot;, &quot;/mk attack1 &lt;attack1&gt;&quot;);&#xD;&#xA;								plug.InvokeNamedCallback(&quot;command&quot;, &quot;/mk attack2 &lt;attack2&gt;&quot;);&#xD;&#xA;								plug.InvokeNamedCallback(&quot;command&quot;, &quot;/mk attack3 &lt;attack3&gt;&quot;);&#xD;&#xA;							});&#xD;&#xA;						}&#xD;&#xA;						else {&#xD;&#xA;							plug.InvokeNamedCallback(&quot;command&quot;, $&quot;/e attack1 &lt;{Threebuckets[0].partyorder}&gt;&quot;);&#xD;&#xA;							plug.InvokeNamedCallback(&quot;command&quot;, $&quot;/e attack2 &lt;{Threebuckets[1].partyorder}&gt;&quot;);&#xD;&#xA;							plug.InvokeNamedCallback(&quot;command&quot;, $&quot;/e attack3 &lt;{Threebuckets[2].partyorder}&gt;&quot;);&#xD;&#xA;						}&#xD;&#xA;						Threebuckets.Clear();&#xD;&#xA;						break;&#xD;&#xA;				}&#xD;&#xA;			}&#xD;&#xA;			break;&#xD;&#xA;		}&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void InitParams() {&#xD;&#xA;		Threebuckets.Clear();&#xD;&#xA;		P43PlayerName.Clear();&#xD;&#xA;		Zhuzis.Clear();&#xD;&#xA;		Zhuzi2 = new Vector2();&#xD;&#xA;		hs = &quot;&quot;;&#xD;&#xA;		ttsafe = &quot;&quot;;&#xD;&#xA;		hsadd = &quot;&quot;;&#xD;&#xA;		ciyu = new Ciyu();&#xD;&#xA;		p43dhCount = 0;&#xD;&#xA;		p43dhDist = new List&lt;DHP43&gt;();&#xD;&#xA;		Ubroadcast = GetPScale(&quot;Ubroadcast&quot;) == &quot;1&quot;;&#xD;&#xA;		Uthreebucket = GetPScale(&quot;Uthreebucket&quot;) == &quot;1&quot;;&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void GetPartyOrderInit(string args) {&#xD;&#xA;		var ss = args.Split(',');&#xD;&#xA;		var find = false;&#xD;&#xA;		for (var i = 0; i &lt; 8; i++) {&#xD;&#xA;			var job = JobOrder[i];&#xD;&#xA;			int num;&#xD;&#xA;			if (MyJob == job) {&#xD;&#xA;				num = 1;&#xD;&#xA;				find = true;&#xD;&#xA;			}&#xD;&#xA;			else num = i + (find ? 1 : 2);&#xD;&#xA;			var name = ss[num];&#xD;&#xA;			foreach (var ser in Server) {&#xD;&#xA;				if (!name.EndsWith(ser)) continue;&#xD;&#xA;				name = name.Substring(0, name.Length - ser.Length);&#xD;&#xA;				break;&#xD;&#xA;			}&#xD;&#xA;			Players[i] = new Player(job, num, name);&#xD;&#xA;		}&#xD;&#xA;		InitParams();&#xD;&#xA;		var sb = new StringBuilder(&quot;小队初始化完成。职业&quot;).Append(MyJob).Append(&quot;。&quot;);&#xD;&#xA;		if (Ubroadcast) sb.Append(&quot;启用团队播报。&quot;);&#xD;&#xA;		if (Uthreebucket) sb.Append(&quot;启用三连桶点名。&quot;);&#xD;&#xA;		var sbs = sb.ToString();&#xD;&#xA;		Log(sbs);&#xD;&#xA;		PostTTS(sbs);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static void Log(string message) {&#xD;&#xA;		plug.InvokeNamedCallback(&quot;command&quot;, $&quot;/e {message}&quot;);&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private record DHP43(string name, float dist) {&#xD;&#xA;		internal readonly string name = name;&#xD;&#xA;		internal float dist = dist;&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private record P41Info {&#xD;&#xA;		internal readonly Vector2 after;&#xD;&#xA;		internal readonly bool canES;&#xD;&#xA;		internal readonly string desc, first;&#xD;&#xA;&#xD;&#xA;		internal P41Info(string first, string desc, Vector2 after, bool canES) {&#xD;&#xA;			this.first = first;&#xD;&#xA;			this.canES = canES;&#xD;&#xA;			this.desc = desc;&#xD;&#xA;			if (canES) this.desc += &quot;(提前安全)&quot;;&#xD;&#xA;			this.after = after;&#xD;&#xA;		}&#xD;&#xA;&#xD;&#xA;		public override string ToString() {&#xD;&#xA;			return desc;&#xD;&#xA;		}&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private record Ciyu {&#xD;&#xA;		internal readonly List&lt;string&gt; dmg = new();&#xD;&#xA;		internal bool cs2;&#xD;&#xA;		internal string zid;&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private record Zhuzi {&#xD;&#xA;		internal readonly List&lt;string&gt; dmg = new();&#xD;&#xA;		internal readonly int pos;&#xD;&#xA;		internal readonly string zid;&#xD;&#xA;		internal bool cs2;&#xD;&#xA;&#xD;&#xA;		internal Zhuzi(string zid, int pos) {&#xD;&#xA;			this.zid = zid;&#xD;&#xA;			this.pos = pos;&#xD;&#xA;		}&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;	private static class StaticPlace {&#xD;&#xA;		internal const string initPlace = &quot;A:100,82;B:118,100;C:100,118;D:82,100;3:93,93;4:107,107;1:100,100&quot;,&#xD;&#xA;			clear2 = &quot;2:clear&quot;,&#xD;&#xA;			clear3 = &quot;3:clear&quot;,&#xD;&#xA;			clear4 = &quot;4:clear&quot;,&#xD;&#xA;			safeA = &quot;1:100,84;2:98,82;3:102,82;4:100,92.5&quot;,&#xD;&#xA;			safeB = &quot;1:116,100;2:118,98;3:118,102;4:107.5,100&quot;,&#xD;&#xA;			safeC = &quot;1:100,116;2:102,118;3:98,118;4:100,107.5&quot;,&#xD;&#xA;			safeD = &quot;1:84,100;2:82,102;3:82,98;4:92.5,100&quot;,&#xD;&#xA;			p1fsN3 = &quot;3:100,90&quot;,&#xD;&#xA;			p1fsN4 = &quot;4:100,90&quot;,&#xD;&#xA;			p1fsS3 = &quot;3:100,110&quot;,&#xD;&#xA;			p1fsS4 = &quot;4:100,110&quot;,&#xD;&#xA;			p1fsW3 = &quot;3:90,100&quot;,&#xD;&#xA;			p1fsW4 = &quot;4:90,100&quot;,&#xD;&#xA;			p1fsE3 = &quot;3:110,100&quot;,&#xD;&#xA;			p1fsE4 = &quot;4:110,100&quot;,&#xD;&#xA;			p2hsWEsafe = &quot;2:90,100;3:110,100&quot;,&#xD;&#xA;			p2hsNSsafe = &quot;2:100,90;3:100,110&quot;,&#xD;&#xA;			p41place2 = &quot;2:100,111&quot;,&#xD;&#xA;			p42place2 = &quot;2:88,88&quot;,&#xD;&#xA;			p42place4d3 = &quot;4:100,110&quot;,&#xD;&#xA;			p42place2rf = &quot;2:100,112&quot;,&#xD;&#xA;			startp43 = &quot;A:100,82;B:94.5,83;1:89.5,85.5;2:85.5,89.5;3:83,94.5;4:82,100&quot;,&#xD;&#xA;			p5jzhA = &quot;B:101,81;C:101,83;D:99,81;4:99,83&quot;,&#xD;&#xA;			p5jzh2 = &quot;B:89,87;C:89,89;D:87,87;4:87,89&quot;,&#xD;&#xA;			p5jzh3 = &quot;B:94,92;C:94,94;D:92,92;4:92,94&quot;;&#xD;&#xA;		internal static readonly string[,] ygjdPlace4 = {&#xD;&#xA;			{ &quot;4:102.1,108.6&quot;, &quot;4:97.9,108.6&quot; },&#xD;&#xA;			{ &quot;4:91.4,102.1&quot;, &quot;4:91.4,97.9&quot; },&#xD;&#xA;			{ &quot;4:97.9,91.4&quot;, &quot;4:102.1,91.4&quot; },&#xD;&#xA;			{ &quot;4:108.6,97.9&quot;, &quot;4:108.6,102.1&quot; }&#xD;&#xA;		};&#xD;&#xA;	}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;	private readonly record struct Player {&#xD;&#xA;		internal readonly string job, name;&#xD;&#xA;		internal readonly int partyorder, storder;&#xD;&#xA;&#xD;&#xA;		internal Player(string job, int partyorder, string name) {&#xD;&#xA;			this.job = job;&#xD;&#xA;			if (job == MyJob) MyName = name;&#xD;&#xA;			this.partyorder = partyorder;&#xD;&#xA;			var o = 0;&#xD;&#xA;			for (var i = 0; i &lt; TBJobOrder.Length; i++) {&#xD;&#xA;				if (job != TBJobOrder[i]) continue;&#xD;&#xA;				o = i;&#xD;&#xA;				break;&#xD;&#xA;			}&#xD;&#xA;			storder = o;&#xD;&#xA;			this.name = name;&#xD;&#xA;		}&#xD;&#xA;&#xD;&#xA;		public override string ToString() {&#xD;&#xA;			return $&quot;[{job}({partyorder})]:{name}&quot;;&#xD;&#xA;		}&#xD;&#xA;	}&#xD;&#xA;}" ActionType="ExecuteScript" Asynchronous="False" />
+                  <Action OrderNumber="2" VariableOp="SetString" VariableName="ptuw_USpecJob" VariableExpression="${_me.subrole}" ActionType="Variable" Asynchronous="False">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:ptuw_USpecJob}" ExpressionTypeL="String" ExpressionR="" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/e [LatihasTUW] ${var:ptuw_USpecJob},&lt;1&gt;,&lt;2&gt;,&lt;3&gt;,&lt;4&gt;,&lt;5&gt;,&lt;6&gt;,&lt;7&gt;,&lt;8&gt;" ActionType="NamedCallback" Asynchronous="False">
+                    <Condition Enabled="false" Grouping="And">
+                      <ConditionSingle Enabled="false" ExpressionL="${func:length:var:ptuw_USpecJob}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                </Actions>
+              </Trigger>
+            </Triggers>
+          </Folder>
+        </Folders>
+        <Triggers>
+          <Trigger Enabled="true" Name="设置(开关三桶/团队播报请设置此，仅此一个开关)" Id="9334f3ea-29e3-47f2-a1db-bdfd092bcb98" RegularExpression="^.{14} Director 21:.{8}:40000001:" EditAutofire="True">
+            <Actions>
+              <Action OrderNumber="1" Enabled="False" ActionType="Placeholder" Description="启用上面两个/下面两个其中之一即可。" DescriptionOverride="True" />
+              <Action OrderNumber="2" VariableOp="SetString" VariableName="ptuw_Ubroadcast" VariableExpression="1" ActionType="Variable" Asynchronous="False" Description="（开/关）开启团队广播" DescriptionOverride="True" />
+              <Action OrderNumber="3" VariableName="ptuw_Ubroadcast" VariableExpression="0" Enabled="False" ActionType="Variable" Asynchronous="False" Description="（开/关）关闭团队广播" DescriptionOverride="True" />
+              <Action OrderNumber="4" VariableOp="SetString" VariableName="ptuw_Uthreebucket" VariableExpression="1" Enabled="False" ActionType="Variable" Asynchronous="False" Description="（开/关）开启三连桶点名" DescriptionOverride="True" />
+              <Action OrderNumber="5" VariableName="ptuw_Uthreebucket" VariableExpression="0" ActionType="Variable" Asynchronous="False" Description="（开/关）关闭三连桶点名" DescriptionOverride="True" />
+              <Action OrderNumber="6" TriggerId="e9f5d8f2-73c9-411c-a10b-eafc27241396" TriggerForce="regexp" ActionType="Trigger" Asynchronous="False" />
+            </Actions>
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers>
+      <Trigger Enabled="true" Name="Readme(省流：点开区域限制-设置可以调整，进本/e 职能位置)" Id="8aae29e1-311e-4a24-a682-d16ff96108c5" RegularExpression="" Description="本触发器基于莫灵喵绝神兵v2.2.0进行二次开发，整合了Cactbot播报，更新了API与播报等。&#xD;&#xA;需要组件：Triggernometry,Postnamazu&#xD;&#xA;使用：&#xD;&#xA;区域限制-设置里面可以开关团队播报和三桶，保存更改后会自动执行注入。&#xD;&#xA;进本按O更改小队顺序：MT,ST,H1,H2,D1,D2,D3,D4。输入/e H1（职能位置）即可，会自动判断职能，也可以手动调整。&#xD;&#xA;鲶鱼精邮差扩展可以让文字显示更酷炫，可以显示部分火神冲路径。&#xD;&#xA;已知问题：&#xD;&#xA;三运地火全队播报受限于网络延迟，不一定准确，其余没问题。&#xD;&#xA;网络情况差的情况下可能泰坦上天位置获取不到导致后面一杆进洞也会不报，小概率事件">
+        <Actions>
+          <Action OrderNumber="1" ActionType="Placeholder" Description="点开右上触发器描述看详细信息" DescriptionOverride="True" />
+        </Actions>
+      </Trigger>
+      <Trigger Enabled="true" Name="休息区" Id="eb1a1e87-a73b-42e3-927d-aef4a0d5c06d" RegularExpression="^.{14} Territory 01:(?!309)">
+        <Actions>
+          <Action OrderNumber="1" ExecScriptExpression="TriggernometryHelpers.Plugin.UnregisterNamedCallback(&quot;LatihasTUW&quot;);" ActionType="ExecuteScript" />
+          <Action OrderNumber="2" VariableOp="UnsetRegexUniversal" VariableName="tuw_.*" ActionType="Variable" />
+          <Action OrderNumber="3" VariableOp="UnsetRegexUniversal" VariableName="ptuw_.*" ActionType="Variable" />
+          <Action OrderNumber="4" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="9" TextAuraName="tuw_" TextAuraFontName="宋体" ActionType="TextAura" />
+        </Actions>
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
+</TriggernometryExport>

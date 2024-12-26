@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<TriggernometryExport PluginVersion="1.2.0.718">
+  <ExportedTrigger Enabled="true" Name="防截图警察" Id="787b6afc-259d-4179-8749-f7f898bac51b" RegularExpression="^.{14} ChatLog 00:0039::截图成功。$">
+    <Actions>
+      <Action OrderNumber="1" UseTTSTextExpression="请局部截图，不要漏悬浮窗" ActionType="UseTTS" />
+    </Actions>
+  </ExportedTrigger>
+</TriggernometryExport>
